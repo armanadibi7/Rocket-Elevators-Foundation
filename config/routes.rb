@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   # get 'home/index'
 
-
+#devise_for :users
+#resources: quotes
 get "home/login"
 root "home#index"
 get "residential" => "home#residential"
