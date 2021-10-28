@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -23,6 +22,3 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-=======
-# Rocket_Elevators_Information_System
->>>>>>> 77608ffcca5015418471040831ecf85026ca145f

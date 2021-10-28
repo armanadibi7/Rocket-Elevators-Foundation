@@ -20,9 +20,11 @@
 //= require bootstrap.min
 //= require bootstrap-sprockets
 //- require rails-ujs
+//= require jquery.magnific-popup.min
 //= require activestorage
 //= require turbolinks
 //= require scripts
+//= require mixitup
 //= require demo.layerslider_slider
 //= require demo.revolution_slider
 //= require owl.carousel.min

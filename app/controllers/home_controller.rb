@@ -1,4 +1,4 @@
 class HomeController < ApplicationController
-  def quotedraft
+  def login
   end
 end

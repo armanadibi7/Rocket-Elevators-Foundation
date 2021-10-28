@@ -1,2 +1,4 @@
 class ResidentialController < ApplicationController
-end
+    def residential
+    end
+  end

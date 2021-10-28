@@ -2,38 +2,27 @@
 	@Author			Dorin Grigoras
 	@Website		www.stepofweb.com
 	@Last Update	Thursay, February 22, 2018
-
 	NOTE! 	Do not change anything here if you want to
 			be able to update in the future! Please use
 			your custom script (eg. custom.js).
-
-
 	TABLE CONTENTS
 	-------------------------------
-
-
 	INLINE SCRIPTS
 	-------------------------------
 		COUNT TO
 			https://github.com/mhuggins/jquery-countTo
-
 		BROWSER DETECT
-
 		Appear
 			https://github.com/bas2k/jquery.appear/
 			
 		Parallax v1.1.3
 			http://www.ianlunn.co.uk/plugins/jquery-parallax/
-
 		jQuery Easing v1.3
 			http://gsgd.co.uk/sandbox/jquery/easing/
-
 		WOW - v1.0.3
 			http://mynameismatthieu.com/WOW/
-
 		Modernizr 3.3.1
 			http://modernizr.com/download/#-csstransforms3d-csstransitions-video-touch-shiv-cssclasses-addtest-prefixed-teststyles-testprop-testallprops-hasevent-prefixes-domprefixes-load
-
 		Popper - required by bootstrap
 		https://popper.js.org/
 *************************************************** **/
@@ -208,11 +197,9 @@
 
 
 /** Load Script
-
 	USAGE
 	var pageInit = function() {}
 	loadScript(plugin_path + "script.js", function);
-
 	Load multiple scripts and call a final function
 	loadScript(plugin_path + "script1.js", function(){
 		loadScript(plugin_path + "script2.js", function(){
@@ -1129,7 +1116,6 @@
 
 
 /** 02. Animate
-
 	EXAMPLE USAGE
 	<img class="wow fadeInUp" data-wow-delay="0.1s" src="image.jpg" alt="" />
  **************************************************************** **/
@@ -2627,14 +2613,12 @@
 
 	
 /** Toastr
-
 	TYPE:
 		primary
 		info
 		error
 		sucess
 		warning
-
 	POSITION
 		top-right
 		top-left
@@ -3230,13 +3214,10 @@
 			<div>item2</div>
 			<div>item3</div>
 			.....
-
 		</div>
-
 		<div class="pajinate-nav">
 			<ul class="pagination"><!-- pages added by pajinate plugin --></ul>
 		</div>
-
 	</div>
  **************************************************************** **/
 	function _pajinate() {
@@ -3592,7 +3573,6 @@
 
 
 /** Modal Autoload
-
 	USAGE:
 	
 	<div id="MODAL-ID-REQUIRED" class="modal fade" data-autoload="true" data-autoload-delay="2000">
@@ -4034,7 +4014,6 @@
 
 	/* 
 		Mobile Check
-
 		if( isMobile.any() ) alert('Mobile');
 		if( isMobile.iOS() ) alert('iOS');
 	*/
