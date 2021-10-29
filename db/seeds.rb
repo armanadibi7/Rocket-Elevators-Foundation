@@ -26,6 +26,115 @@ employees = [
         title: 'Director Assistant',
         email: 'martin.chantal@codeboxx.biz'
     },
+    {
+        first_name: 'Mathieu',
+        last_name: 'Houde',
+        title: 'Captain',
+        email: 'mathieu.houde@codeboxx.biz'
+    },
+    {
+        first_name: 'Patrick ',
+        last_name: 'Thibault',
+        title: 'Captain',
+        email: 'patrick.thibault@codeboxx.biz'
+    },
+    {
+        first_name: 'David',
+        last_name: 'Boutin',
+        title: 'Engineer',
+        email: 'david.boutin@codeboxx.biz'
+    },
+    {
+        first_name: 'Mathieu',
+        last_name: 'Lortie',
+        title: 'Engineer',
+        email: 'mathieu.lortie@codeboxx.biz'
+    },
+    {
+        first_name: 'Thomas',
+        last_name: 'Carrier',
+        title: 'Engineer',
+        email: 'thomas.carrier@codeboxx.biz'
+    },
+    {
+        first_name: 'Serge',
+        last_name: 'Savoie',
+        title: 'Engineer',
+        email: 'serge.savoie@codeboxx.biz'
+    },
+    {
+        first_name: 'Francis',
+        last_name: 'Patry-Jessop',
+        title: 'Engineer',
+        email: 'francis.patry-jessop@codeboxx.biz'
+    },
+    {
+        first_name: 'Mathieu',
+        last_name: 'Lefrancois',
+        title: 'Engineer',
+        email: 'mathieu.lefrancois@codeboxx.biz'
+    },
+    {
+        first_name: 'David',
+        last_name: 'Larochelle',
+        title: 'Engineer',
+        email: 'david.larochelle@codeboxx.biz'
+    },
+    {
+        first_name: 'Nicolas',
+        last_name: 'Pineault',
+        title: 'Engineer',
+        email: 'nicolas.pineault@codeboxx.biz'
+    },
+    {
+        first_name: 'David',
+        last_name: 'Amyot',
+        title: 'Engineer',
+        email: 'david.amyot@codeboxx.biz'
+    },
+    {
+        first_name: 'Remi',
+        last_name: 'Gagnon',
+        title: 'Engineer',
+        email: 'remi.gagnon@codeboxx.biz'
+    },
+    {
+        first_name: 'Timothy',
+        last_name: 'Wever',
+        title: 'Developer',
+        email: 'timothy.wever@codeboxx.biz'
+    },
+    {
+        first_name: 'Kiril',
+        last_name: 'Kleinerman',
+        title: 'Developer',
+        email: 'kiril.kleinerman@codeboxx.biz'
+    },
+    {
+        first_name: 'Emmanuela',
+        last_name: 'Derilus',
+        title: 'Developer',
+        email: 'emmanuela.derilus@codeboxx.biz'
+    },
+    {
+        first_name: 'Abdul',
+        last_name: 'Akeeb',
+        title: 'Developer',
+        email: 'abdul.akeeb@codebozz.biz'
+    },
+    {
+        first_name: 'Krista',
+        last_name: 'Sheely',
+        title: 'Developer',
+        email: 'krista.sheely@codeboxx.biz'
+    },
+    {
+        first_name: 'Jonathan',
+        last_name: 'Murray',
+        title: 'Developer',
+        email: 'jonathan.murray@codeboxx.biz'
+    }
+    
 ]
 
 # <Model>.create({ key: value })
