@@ -13,7 +13,7 @@
 //= require jquery_ujs
 //= require turbolinks 
 
-//= require jquery-3.3.1.min
+// require jquery-3.3.1.min
 //= require jquery.themepunch.tools.min
 //= require jquery.themepunch.revolution
 //= require jquery.themepunch.revolution.min
@@ -21,7 +21,7 @@
 //= require bootstrap
 //= require bootstrap.min
 //= require bootstrap-sprockets
-//- require rails-ujs
+// require rails-ujs
 //= require jquery.magnific-popup.min
 //= require activestorage
 
@@ -33,4 +33,4 @@
 //= require gmaps
 
 //= require smoothscroll
-//= require_tree .
+// require_tree .

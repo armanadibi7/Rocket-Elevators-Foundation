@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 #devise_for :users
 #resources: quotes
 get "home/login"
-root "home#index"
+root to: "home#index"
 get "residential" => "home#residential"
 get "commercial" => "home#commercial"
 get "quote" => "home#quote"
