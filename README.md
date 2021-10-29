@@ -1,24 +1,28 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Project Description
+This is a ruby on rails project for Rocket Elevators. Our goal was to make an interactive website with a team member's original static site, and link it to a database; storing the employee login and quote data in separate tables. The site includes a back office section allowing employees to login and access the stored data.
 
-Things you may want to cover:
+#### Back Office Instructional Video
+This video gives a brief explanation of the process for submitting a quote form to the Back Office, as well as, describing the creation of a submission and how to access the Back Office to view said submission.<br />
+Link: <em>link here</em>
 
-* Ruby version
+### Back Office Admin Logins
+Nicolas Genest | CEO | nicolas.genest@codeboxx.biz | password: codeboxx1
 
-* System dependencies
+Nadya Fortier | Director | nadya.fortier@codeboxx.biz | password: codeboxx1
 
-* Configuration
+Martin Chantal | Director Assistant | martin.chantal@codeboxx.biz | password: codeboxx1
 
-* Database creation
+Mathieu Houde | Captain | mathieu.houde@codeboxx.biz | password: codeboxx1
 
-* Database initialization
+Abdul Akeeb | Developer | abdul.akeeb@codebozz.biz | password: codeboxx1
 
-* How to run the test suite
+Timothy Wever | Developer | timothy.wever@codeboxx.biz | password: codeboxx1
 
-* Services (job queues, cache servers, search engines, etc.)
+### Ruby / Rails version
+We used Ruby 2.6.6 and Ruby on Rails 5.2.6
 
-* Deployment instructions
-
-* ...
+### Collaborators
+Team Lead: <strong>Do Minh An Nguyen</strong> (Domin)<br />
+Team Members: <strong>Jacob Gomez</strong>, <strong>Matthew Dandurand</strong>, <strong>Arman Adibi</strong>, and <strong>Tyler Calderon</strong>
