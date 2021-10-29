@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  devise_for :users
   # get 'home/index'
 
 #devise_for :users
@@ -8,6 +10,10 @@ root "home#index"
 get "residential" => "home#residential"
 get "commercial" => "home#commercial"
 get "quote" => "home#quote"
+
+
+ 
+
 
 # why is this different from Arman? -jake
 
