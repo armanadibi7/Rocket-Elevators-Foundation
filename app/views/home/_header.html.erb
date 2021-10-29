@@ -63,10 +63,10 @@
 									</li>
 
 									<% if user_signed_in? %>
-										<li><%= link_to 'Back Office', rails_admin_path %></li>
-										<li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete  %></li>
+										<li><%= link_to 'BACK OFFICE', rails_admin_path %></li>
+										<li><%= link_to 'SIGN OUT', destroy_user_session_path, :method => :delete  %></li>
 									<% else %>
-										<li><%= link_to 'Sign In', new_user_session_path%>
+										<li><%= link_to 'SIGN IN', new_user_session_path%>
 									<% end %></li>
 
 
