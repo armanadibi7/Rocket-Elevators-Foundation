@@ -1,9 +1,9 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.11.0"
+lock "~> 3.16.0"
 
 before 'deploy', 'rvm1:install:ruby'
 set :rvm_map_bins, [ 'rake', 'gem', 'bundle', 'ruby', 'puma', 'pumactl' ]
-set :application, "Do Minh An Nguyen"
+set :application, "DoMinhAnNguyen"
 set :repo_url, "https://github.com/dominhannguyen/Rocket_Elevators_Information_System"
 
 # Default branch is :master
