@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_29_185626) do
+ActiveRecord::Schema.define(version: 2021_10_29_193141) do
 
-  create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+  create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "title"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_10_29_185626) do
     t.index ["user_id"], name: "index_employees_on_user_id"
   end
 
-  create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+  create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "email"
@@ -38,17 +38,17 @@ ActiveRecord::Schema.define(version: 2021_10_29_185626) do
     t.string "corporations"
     t.string "maximum_occupancy"
     t.string "business_hours"
-    t.string "total_price"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.string "services_type"
     t.string "amount_of_elevator"
     t.string "price_per_elevator"
     t.string "installation"
     t.string "price_elevator_total"
-    t.string "services_type"
+    t.string "total_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

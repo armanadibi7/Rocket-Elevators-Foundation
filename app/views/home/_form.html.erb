@@ -22,12 +22,12 @@
       <div class="col-md-6" id="phoneNumber">
          
       <label for="lblPhone">Phone Number:</label>
-      <%= telephone_field :phone_number, "", class: 'form-control' ,:required => true%>
+      <%= text_field_tag :phone_number, "", class: 'form-control' ,:required => true%>
     </div>
     <div class="col-md-6" id="email">
          
     <label for="lblEmail">Email:</label>
-    <%= email_field :email, "", class: 'form-control',:required => true %>
+    <%= text_field_tag :email, "", class: 'form-control',:required => true %>
 
  </div>
         
