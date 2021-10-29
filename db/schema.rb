@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_29_033357) do
+ActiveRecord::Schema.define(version: 2021_10_29_185626) do
 
   create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "first_name"
@@ -21,6 +21,31 @@ ActiveRecord::Schema.define(version: 2021_10_29_033357) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_employees_on_user_id"
+  end
+
+  create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "phone_number"
+    t.string "building_type"
+    t.string "apartments"
+    t.string "floors"
+    t.string "basements"
+    t.string "elevators"
+    t.string "companies"
+    t.string "parking_spots"
+    t.string "corporations"
+    t.string "maximum_occupancy"
+    t.string "business_hours"
+    t.string "total_price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "amount_of_elevator"
+    t.string "price_per_elevator"
+    t.string "installation"
+    t.string "price_elevator_total"
+    t.string "services_type"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|

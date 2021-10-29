@@ -15,7 +15,7 @@ function mainFunction(){
 
     var select = document.getElementById('buildingsType');
     value = select.options[select.selectedIndex].value;
-
+    document.getElementById('btnSubmit').disabled = true;
     document.getElementById('input-fields-3').style.visibility= 'visible';
     document.getElementById('step2').style.visibility= 'visible';
     document.getElementById('step3').style.visibility= 'visible';
@@ -107,11 +107,11 @@ function emptyFields(){
     document.getElementById('txtCorporation').value = '';
     document.getElementById('txtOccupancy').value = '';
     document.getElementById('txtHours').value = '';
-    $('#txtAmntElevator').attr('placeholder','');
-    $('#txtElevatorTotalPrice').attr('placeholder','');
-    $('#txtInstallationFee').attr('placeholder','');
-    $('#txtTotal').attr('placeholder','');
-    $('#txtPriceElevator').attr('placeholder','');
+    $('#txtAmntElevator').attr('value','');
+    $('#txtElevatorTotalPrice').attr('value','');
+    $('#txtInstallationFee').attr('value','');
+    $('#txtTotal').attr('value','');
+    $('#txtPriceElevator').attr('value','');
   
 }
 
@@ -121,18 +121,18 @@ function radioAction(){
     if(document.getElementById('standard').checked) {
         radioSelected = 7565;
         fee = 1.1;
-        $('#txtPriceElevator').attr('placeholder',"7,565.00 $");
+        $('#txtPriceElevator').attr('value',"7,565.00 $");
         
     
       }else if(document.getElementById('premium').checked) {
          radioSelected=12345;
          fee = 1.13;
-        $('#txtPriceElevator').attr('placeholder',"12,345.00 $");
+        $('#txtPriceElevator').attr('value',"12,345.00 $");
     
       }else if(document.getElementById('excelium').checked) {
         fee = 1.16;
         radioSelected= 15400;
-        $('#txtPriceElevator').attr('placeholder',"15,400.00 $");
+        $('#txtPriceElevator').attr('value',"15,400.00 $");
     
       }
 }
@@ -150,8 +150,11 @@ function verifyInput(bldngType){
                 $('#txtElevatorTotalPrice').attr('placeholder','Loading...');
                 $('#txtInstallationFee').attr('placeholder','Loading...');
                 $('#txtTotal').attr('placeholder','Loading...');
+                document.getElementById('btnSubmit').disabled = true;
+                
                 return false;
              }else{
+                document.getElementById('btnSubmit').disabled = false;
                  return true;
              }
 
@@ -165,8 +168,11 @@ function verifyInput(bldngType){
                 $('#txtElevatorTotalPrice').attr('placeholder','Loading...');
                 $('#txtInstallationFee').attr('placeholder','Loading...');
                 $('#txtTotal').attr('placeholder','Loading...');
+                document.getElementById('btnSubmit').disabled = true;
+                
                 return false;
              }else{
+                document.getElementById('btnSubmit').disabled = false;
                  return true;
              }
 
@@ -180,8 +186,11 @@ function verifyInput(bldngType){
                 $('#txtElevatorTotalPrice').attr('placeholder','Loading...');
                 $('#txtInstallationFee').attr('placeholder','Loading...');
                 $('#txtTotal').attr('placeholder','Loading...');
+                document.getElementById('btnSubmit').disabled = true;
+                
                 return false;
              }else{
+                document.getElementById('btnSubmit').disabled = false;
                  return true;
              }
 
@@ -196,12 +205,17 @@ function verifyInput(bldngType){
                 $('#txtElevatorTotalPrice').attr('placeholder','Loading...');
                 $('#txtInstallationFee').attr('placeholder','Loading...');
                 $('#txtTotal').attr('placeholder','Loading...');
+                document.getElementById('btnSubmit').disabled = true;
+                
                 return false;
+
              }else{
                  if(parseInt(document.getElementById('txtHours').value)>24){
                         alert("Error Must be under 24h");
                          document.getElementById('txtHours').value = '';
                  }else{
+                    document.getElementById('btnSubmit').disabled = false;
+                
                     return true;
                  }
                  
@@ -270,9 +284,9 @@ function actionListener(){
 function finalCalcul(){
     
     var elevatorPrice = Math.ceil(nbElevator * radioSelected);   
-    $('#txtAmntElevator').attr('placeholder',nbElevator);
-    $('#txtElevatorTotalPrice').attr('placeholder',elevatorPrice.toLocaleString("en",{useGrouping: true,minimumFractionDigits: 2})+ " $");
-    $('#txtInstallationFee').attr('placeholder',(elevatorPrice*(fee-1)).toLocaleString("en",{useGrouping: true,minimumFractionDigits: 2})+ " $");
-    $('#txtTotal').attr('placeholder',(elevatorPrice*fee).toLocaleString("en",{useGrouping: true,minimumFractionDigits: 2})+ " $");
+    $('#txtAmntElevator').attr('value',nbElevator);
+    $('#txtElevatorTotalPrice').attr('value',elevatorPrice.toLocaleString("en",{useGrouping: true,minimumFractionDigits: 2})+ " $");
+    $('#txtInstallationFee').attr('value',(elevatorPrice*(fee-1)).toLocaleString("en",{useGrouping: true,minimumFractionDigits: 2})+ " $");
+    $('#txtTotal').attr('value',String((elevatorPrice*fee).toLocaleString("en",{useGrouping: true,minimumFractionDigits: 2}))+ " $");
   
 }

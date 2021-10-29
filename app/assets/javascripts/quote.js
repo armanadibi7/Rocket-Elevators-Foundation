@@ -74,7 +74,7 @@ function mainFunction(){
     }else if(value=="select"){
         document.getElementById('step2').style.visibility= 'hidden';
         document.getElementById('step3').style.visibility= 'hidden';
-
+        document.getElementById('input-fields-3').style.visibility= 'hidden';
         document.getElementById('step4').style.visibility= 'hidden';
         document.getElementById('input-fields-2').style.visibility= 'hidden';
         document.getElementById('input-fields').style.visibility= 'hidden';
@@ -150,8 +150,11 @@ function verifyInput(bldngType){
                 $('#txtElevatorTotalPrice').attr('placeholder','Loading...');
                 $('#txtInstallationFee').attr('placeholder','Loading...');
                 $('#txtTotal').attr('placeholder','Loading...');
+                document.getElementById('btnSubmit').disabled = true;
+                
                 return false;
              }else{
+                document.getElementById('btnSubmit').disabled = false;
                  return true;
              }
 
@@ -165,8 +168,11 @@ function verifyInput(bldngType){
                 $('#txtElevatorTotalPrice').attr('placeholder','Loading...');
                 $('#txtInstallationFee').attr('placeholder','Loading...');
                 $('#txtTotal').attr('placeholder','Loading...');
+                document.getElementById('btnSubmit').disabled = true;
+                
                 return false;
              }else{
+                document.getElementById('btnSubmit').disabled = false;
                  return true;
              }
 
@@ -180,8 +186,11 @@ function verifyInput(bldngType){
                 $('#txtElevatorTotalPrice').attr('placeholder','Loading...');
                 $('#txtInstallationFee').attr('placeholder','Loading...');
                 $('#txtTotal').attr('placeholder','Loading...');
+                document.getElementById('btnSubmit').disabled = true;
+                
                 return false;
              }else{
+                document.getElementById('btnSubmit').disabled = false;
                  return true;
              }
 
@@ -196,12 +205,17 @@ function verifyInput(bldngType){
                 $('#txtElevatorTotalPrice').attr('placeholder','Loading...');
                 $('#txtInstallationFee').attr('placeholder','Loading...');
                 $('#txtTotal').attr('placeholder','Loading...');
+                document.getElementById('btnSubmit').disabled = true;
+                
                 return false;
+
              }else{
                  if(parseInt(document.getElementById('txtHours').value)>24){
                         alert("Error Must be under 24h");
                          document.getElementById('txtHours').value = '';
                  }else{
+                    document.getElementById('btnSubmit').disabled = false;
+                
                     return true;
                  }
                  
