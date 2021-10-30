@@ -25,12 +25,15 @@ Timothy Wever | Developer | timothy.wever@codeboxx.biz | password: codeboxx1
 First, you need a copy a a database.yml file, which will specify your database information. Add this file to the config folder. A copy of the database.yml file is here https://github.com/dominhannguyen/database-yml
 
 Second, open your ubuntu terminal and run this command to install the dependencies:
+
 ```bundle install```
 
 Third, run this command to set up your databases:
+
 ```rails db:setup```
 
 Finally, run this command:
+
 ```rails server ```
 
 You can now see the website at a web browser at localhost:3000
