@@ -33,4 +33,4 @@
 //= require gmaps
 
 //= require smoothscroll
-// require_tree .
+//= require_tree .
