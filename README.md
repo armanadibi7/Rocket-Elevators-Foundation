@@ -5,7 +5,7 @@ This is a ruby on rails project for Rocket Elevators. Our goal was to make an in
 
 #### Back Office Instructional Video
 This video gives a brief explanation of the process for submitting a quote form to the Back Office, as well as, describing the creation of a submission and how to access the Back Office to view said submission.<br />
-Link: <em>link here</em>
+Link: <em>https://www.youtube.com/watch?v=aFcNlYyYRYk</em>
 
 ### Back Office Admin Logins
 Nicolas Genest | CEO | nicolas.genest@codeboxx.biz | password: codeboxx1
