@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_11_01_215557) do
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
@@ -22,6 +23,62 @@ ActiveRecord::Schema.define(version: 2021_11_01_215557) do
     t.string "full_name_of_service_technical_authority"
     t.string "technical_authority_phone_for_service"
     t.string "technical_manager_email_for_service"
+=======
+
+ActiveRecord::Schema.define(version: 2021_11_02_131821) do
+
+  create_table "batteries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "type"
+    t.string "status"
+    t.date "date_of_commission"
+    t.date "date_of_last_inspection"
+    t.string "certificate_of_operations"
+    t.string "information"
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "columns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "type"
+    t.integer "number_of_floor"
+    t.string "status"
+    t.string "information"
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "column_id"
+    t.index ["column_id"], name: "index_columns_on_column_id"
+  end
+
+  create_table "elevators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "serial_number"
+    t.string "model"
+    t.string "type"
+    t.string "status"
+    t.date "date_of_commission"
+    t.date "date_of_last_inspection"
+    t.text "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "column_id"
+    t.index ["column_id"], name: "index_elevators_on_column_id"
+  end
+
+
+
+
+  create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+    t.string "company_name"
+    t.string "company_address"
+    t.string "company_contact_name"
+    t.string "contact_phone"
+    t.string "contact_email"
+    t.string "company_description"
+    t.string "service_tech_name"
+    t.string "service_tech_phone"
+    t.string "service_tech_email"
+>>>>>>> edb9773c592242e9093192bfac06f65888e3e5f7
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -92,5 +149,7 @@ ActiveRecord::Schema.define(version: 2021_11_01_215557) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "columns", "columns"
+  add_foreign_key "elevators", "columns"
   add_foreign_key "employees", "users"
 end

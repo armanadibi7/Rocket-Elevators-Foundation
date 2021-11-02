@@ -179,4 +179,23 @@ employees.each do |employee|
     )
 end
 
+require 'faker'
+
+100.times do
+    customers = Customer.new(
+
+        company_name: Faker::Company.name, #=> "Hirthe-Ritchie"
+        company_address: Faker::Address.full_address, #=> "282 Kevin Brook, Imogeneborough, CA 58517"
+        company_contact_name: Faker::Name.name , #=> "Tyshawn Johns Sr."
+        contact_phone: Faker::PhoneNumber.cell_phone, #=> "(186)285-7925"
+        contact_email: Faker::Internet.unique.email, #=> "eliza@mann.net"
+        company_description: Faker::Company.catch_phrase, #=> "Business-focused coherent parallelism"
+        service_tech_name: Faker::Name.name , #=> "Tyshawn Johns Sr."
+        service_tech_phone: Faker::PhoneNumber.cell_phone, #=> "(186)285-7925"
+        service_tech_email: Faker::Internet.unique.email #=> "eliza@mann.net"
+
+    )
+    customers.save
+end
+
 puts "Seeding Done!"
