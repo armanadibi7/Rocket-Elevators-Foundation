@@ -160,7 +160,7 @@ employees.each do |employee|
     )
 end
 
-
+require 'faker'
 
 100.times do
     address = Addressy::US.fetch(10).first
@@ -172,17 +172,12 @@ end
         number_and_street: address.street,
         suite_and_apartment: address.street.split(" ")[0],
         city: address.city,
-        # state: address.state,
         postal_code: address.zip,
         country: "USA",
         notes: Faker::Lorem.sentence(word_count: rand(3..9).floor)
-
     )
     addresses.save
 end
-
-require 'faker'
-
 
 100.times do
     customers = Customer.new(
@@ -196,9 +191,46 @@ require 'faker'
         service_tech_name: Faker::Name.name , #=> "Tyshawn Johns Sr."
         service_tech_phone: Faker::PhoneNumber.cell_phone, #=> "(186)285-7925"
         service_tech_email: Faker::Internet.unique.email #=> "eliza@mann.net"
-
     )
     customers.save
+end
+
+100.times do
+    batteries = Battery.new(
+
+        battery_type: ["Residential", "Commercial", "Corporate", "Hybrid"].sample,
+        status: "Active", 
+        date_of_commissioning: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), #=> #<Date: 2014-09-24>, 
+        date_of_last_inspection: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), #=> #<Date: 2014-09-24>, 
+        certificate_of_operations: 'Certified',
+        information: Faker::Lorem.sentence(word_count: 11),
+        notes: Faker::Lorem.sentence(word_count: rand(3..12).floor)
+    )
+    batteries.save
+end
+
+100.times do
+    columns = Column.new(
+        column_type: ['Commercial', 'Residential', 'Corporate',].sample, 
+        number_of_floor: Faker::Number.decimal_part(digits: 2), #=> "09"
+        status: Faker::Boolean.boolean, #=> true
+        information: Faker::Types.complex_rb_hash(number: 1), #=> {user: {first: "bob", last: "marley"}}
+        notes: Faker::Quote.yoda #=> "Use your feelings, Obi-Wan, and find him you will."
+    )
+    columns.save
+end
+
+100.times do
+    elevators = Elevator.new(
+        serial_number: Faker::Number.number(digits: 10), #=> 1968353479
+        model: ['Standard', 'Premium', 'Excelium'].sample, 
+        elevator_type: ['Commercial', 'Residential', 'Corporate',].sample, 
+        status: Faker::Boolean.boolean, #=> true
+        date_of_commissioning: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), #=> #<Date: 2014-09-24>
+        date_of_last_inspection: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), #=> #<Date: 2014-09-24>
+        notes: Faker::Quote.yoda #=> "Use your feelings, Obi-Wan, and find him you will."
+    )
+    elevators.save
 end
 
 puts "Seeding Done!"
