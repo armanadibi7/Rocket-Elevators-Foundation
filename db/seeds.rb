@@ -160,14 +160,35 @@ employees.each do |employee|
     )
 end
 
+
+
+100.times do
+    address = Addressy::US.fetch(10).first
+    addresses = Address.new(
+        
+        address_type: ["House", "Apartment", "Commercial", "Corporate", "Hybrid"].sample,
+        status: ["Active", "Inactive"].sample,
+        entity: ["Customer", "Building"].sample,
+        number_and_street: address.street,
+        suite_and_apartment: address.street.split(" ")[0],
+        city: address.city,
+        # state: address.state,
+        postal_code: address.zip,
+        country: "USA",
+        notes: Faker::Lorem.sentence(word_count: rand(3..9).floor)
+
+    )
+    addresses.save
+end
+
 require 'faker'
-addressy = Addressy::US.fetch(10)
+
 
 100.times do
     customers = Customer.new(
 
         company_name: Faker::Company.name, #=> "Hirthe-Ritchie"
-        company_address: addressy.full, #link to real address with addressy
+        #company_address: addressy.full, #link to real address with addressy
         company_contact_name: Faker::Name.name , #=> "Tyshawn Johns Sr."
         contact_phone: Faker::PhoneNumber.cell_phone, #=> "(186)285-7925"
         contact_email: Faker::Internet.unique.email, #=> "eliza@mann.net"
