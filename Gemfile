@@ -12,7 +12,6 @@ gem 'owlcarousel-rails', '~> 1.1', '>= 1.1.3.3'
 gem 'jquery-ui-rails'
 gem "mixitup-rails"
 
-#Use faker v2.19 to generate fake data -Jake
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
 
