@@ -147,7 +147,7 @@ employees.each do |employee|
         last_name: employee[:last_name],
         phone_number: 1112223333,
         email: employee[:email],
-        password: "codeboxx1",
+        password: "password",
         is_admin: TRUE, 
     )
 
