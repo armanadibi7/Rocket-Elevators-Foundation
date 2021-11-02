@@ -13,6 +13,8 @@ gem 'jquery-ui-rails'
 gem "mixitup-rails"
 
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+#Addressy makes it easy to fetch real addresses for your testing/demoing needs.
+gem 'addressy'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
