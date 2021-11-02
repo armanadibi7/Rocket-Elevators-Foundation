@@ -143,9 +143,6 @@ employees = [
     
 employees.each do |employee|
     user = User.create!(
-        first_name: employee[:first_name],
-        last_name: employee[:last_name],
-        phone_number: 1112223333,
         email: employee[:email],
         password: "password",
         is_admin: TRUE, 
