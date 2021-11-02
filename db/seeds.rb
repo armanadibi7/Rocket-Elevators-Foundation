@@ -207,4 +207,19 @@ end
     elevators.save
 end
 
+100.times do
+    leads = Leads.new(
+
+        full_name: Faker::Name.name , #=> "Tyshawn Johns Sr."
+        company_name: ['Standard', 'Premium', 'Excelium'].sample, 
+        email: ['Commercial', 'Residential', 'Corporate',].sample, 
+        phone_number: Faker::Boolean.boolean, #=> true
+        project_name: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), #=> #<Date: 2014-09-24>
+        project_description: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), #=> #<Date: 2014-09-24>
+        department: Faker::Quote.yoda #=> "Use your feelings, Obi-Wan, and find him you will."
+        message:
+
+    )
+    leads.save
+end
 puts "Seeding Done!"
