@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
 employees = [
     {
         first_name: 'Nicolas',
@@ -137,6 +136,7 @@ employees = [
     
 ]
 
+
 # <Model>.create({ key: value })
 # <Model>.create({ "key" => value })
 # <Model>.create( key: value )
@@ -150,6 +150,7 @@ employees.each do |employee|
         password: "codeboxx1",
         is_admin: TRUE, 
     )
+
 
     Employee.create!(
         first_name: employee[:first_name],
