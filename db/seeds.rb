@@ -6,24 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-require "faker"
-
-10.times do
-    customers = Customer.new(
-        company_name: Faker::Company.name,
-        company_address: Faker::Address.full_address,
-        company_contact_name: Faker::Company.name,
-        contact_phone: Faker::PhoneNumber.phone_number,
-        contact_email: Faker::Internet.email,
-        company_description: Faker::Company.type,
-        service_tech_name: Faker::Company.name,
-        service_tech_phone: Faker::PhoneNumber.phone_number,
-        service_tech_email: Faker::Internet.email
-        )
-    customers.save
-end
-
-
 employees = [
     {
         first_name: 'Nicolas',
@@ -196,6 +178,19 @@ require 'faker'
 
     )
     customers.save
+end
+
+100.times do
+    columns = Column.new(
+
+        type: Faker::Types.rb_string, #=> "foobar"
+        number_of_floor: Faker::Number.decimal_part(digits: 2), #=> "09"
+        status: Faker::Boolean.boolean, #=> true
+        information: Faker::Types.complex_rb_hash(number: 1), #=> {user: {first: "bob", last: "marley"}}
+        notes: Faker::Quote.yoda #=> "Use your feelings, Obi-Wan, and find him you will."
+
+    )
+    columns.save
 end
 
 puts "Seeding Done!"
