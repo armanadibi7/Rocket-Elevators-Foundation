@@ -147,7 +147,7 @@ employees.each do |employee|
         last_name: employee[:last_name],
         phone_number: 1112223333,
         email: employee[:email],
-        password: "codeboxx1",
+        password: "password",
         is_admin: TRUE, 
     )
 
@@ -184,7 +184,7 @@ end
     customers = Customer.new(
 
         company_name: Faker::Company.name, #=> "Hirthe-Ritchie"
-        #company_address: addressy.full, #link to real address with addressy
+        #company_address: addressy.full, #link to real address with address
         company_contact_name: Faker::Name.name , #=> "Tyshawn Johns Sr."
         contact_phone: Faker::PhoneNumber.cell_phone, #=> "(186)285-7925"
         contact_email: Faker::Internet.unique.email, #=> "eliza@mann.net"
