@@ -161,6 +161,21 @@ end
 require 'faker'
 
 100.times do
+    leads = Lead.create!(
+        
+        full_name: Faker::Name.name,
+        company_name: Faker::Company.name,
+        email: Faker::Internet.email,
+        phone_number: Faker::PhoneNumber.cell_phone,
+        project_name: Faker::Name.unique.name,
+        project_description: Faker::Lorem.paragraph(sentence_count: 2),
+        department: ["HR", "Repair", "Maintenance", "Development"].sample,
+        message: Faker::Lorem.paragraph(sentence_count: 2),
+        attachment: Faker::LoremFlickr.image
+    )
+end
+
+100.times do
     address = Addressy::US.fetch(10).first
     addresses = Address.create!(
         
