@@ -183,7 +183,7 @@ end
 100.times do
     columns = Column.new(
 
-        type: Faker::Types.rb_string, #=> "foobar"
+        column_type: ['Commercial', 'Residential', 'Corporate',].sample, 
         number_of_floor: Faker::Number.decimal_part(digits: 2), #=> "09"
         status: Faker::Boolean.boolean, #=> true
         information: Faker::Types.complex_rb_hash(number: 1), #=> {user: {first: "bob", last: "marley"}}
@@ -191,6 +191,20 @@ end
 
     )
     columns.save
+end
+
+100.times do
+    elevators = Elevator.new(
+
+        serial_number: Faker::Number.number(digits: 10), #=> 1968353479
+        model: ['Standard', 'Premium', 'Excelium'].sample, 
+        elevator_type: ['Commercial', 'Residential', 'Corporate',].sample, 
+        status: Faker::Boolean.boolean, #=> true
+        date_of_commissioning: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), #=> #<Date: 2014-09-24>
+        date_of_last_inspection: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), #=> #<Date: 2014-09-24>
+        notes: Faker::Quote.yoda #=> "Use your feelings, Obi-Wan, and find him you will."
+    )
+    elevators.save
 end
 
 puts "Seeding Done!"
