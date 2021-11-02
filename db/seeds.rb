@@ -161,12 +161,13 @@ employees.each do |employee|
 end
 
 require 'faker'
+addressy = Addressy::US.fetch(10)
 
 100.times do
     customers = Customer.new(
 
         company_name: Faker::Company.name, #=> "Hirthe-Ritchie"
-        company_address: Faker::Address.full_address, #=> "282 Kevin Brook, Imogeneborough, CA 58517"
+        company_address: addressy.full, #link to real address with addressy
         company_contact_name: Faker::Name.name , #=> "Tyshawn Johns Sr."
         contact_phone: Faker::PhoneNumber.cell_phone, #=> "(186)285-7925"
         contact_email: Faker::Internet.unique.email, #=> "eliza@mann.net"
