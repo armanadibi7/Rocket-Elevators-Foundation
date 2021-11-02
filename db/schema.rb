@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 2021_11_02_153651) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "batteries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.string "type"
+  create_table "batteries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "battery_type"
     t.string "status"
     t.date "date_of_commissioning"
     t.date "date_of_last_inspection"
@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(version: 2021_11_02_153651) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "columns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.string "type"
+  create_table "columns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "column_type"
     t.integer "number_of_floor"
     t.string "status"
     t.string "information"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2021_11_02_153651) do
   create_table "elevators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "serial_number"
     t.string "model"
-    t.string "type"
+    t.string "elevator_type"
     t.string "status"
     t.date "date_of_commissioning"
     t.date "date_of_last_inspection"
