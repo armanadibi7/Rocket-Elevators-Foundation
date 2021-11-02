@@ -6,6 +6,23 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require "faker"
+
+10.times do
+    customers = Customer.new(
+        company_name: Faker::Company.name,
+        company_headquarters_address: Faker::Address.full_address,
+        full_name_of_company_contact: Faker::Company.name,
+        company_contact_phone: Faker::PhoneNumber.phone_number,
+        email_of_the_company_contact: Faker::Internet.email,
+        company_description: Faker::Company.type,
+        full_name_of_service_technical_authority: Faker::Company.name,
+        technical_authority_phone_for_service: Faker::PhoneNumber.phone_number,
+        technical_manager_email_for_service: Faker::Internet.email
+        )
+    customers.save
+end
+
 
 employees = [
     {
@@ -137,6 +154,7 @@ employees = [
     
 ]
 
+
 # <Model>.create({ key: value })
 # <Model>.create({ "key" => value })
 # <Model>.create( key: value )
@@ -150,6 +168,7 @@ employees.each do |employee|
         password: "codeboxx1",
         is_admin: TRUE, 
     )
+
 
     Employee.create!(
         first_name: employee[:first_name],
