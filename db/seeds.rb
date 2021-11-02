@@ -175,7 +175,7 @@ require 'faker'
     )
 end
 
-100.times do
+150.times do
     address = Addressy::US.fetch(10).first
     addresses = Address.create!(
         
@@ -191,7 +191,7 @@ end
     )
 end
 
-100.times do
+241.times do
     customers = Customer.create!(
 
         company_name: Faker::Company.name, #=> "Hirthe-Ritchie"
@@ -203,11 +203,11 @@ end
         service_tech_name: Faker::Name.name , #=> "Tyshawn Johns Sr."
         service_tech_phone: Faker::PhoneNumber.cell_phone, #=> "(186)285-7925"
         service_tech_email: Faker::Internet.unique.email, #=> "eliza@mann.net"
-        address_id: Faker::Number.between(from: 1, to: 100)
+        address_id: Faker::Number.between(from: 1, to: 150)
     )
 end
 
-100.times do
+179.times do
     buildings = Building.create!(
 
         admin_name: Faker::Name.name, 
@@ -218,11 +218,11 @@ end
         tech_email: Faker::Internet.unique.email, 
         tech_phone_number: Faker::PhoneNumber.cell_phone, 
         address_id: Faker::Number.between(from: 1, to: 100),
-        customer_id: Faker::Number.between(from: 1, to: 100) 
+        customer_id: Faker::Number.between(from: 1, to: 179) 
     )
 end
 
-100.times do
+214.times do
     batteries = Battery.create!(
 
         battery_type: ["Residential", "Commercial", "Corporate", "Hybrid"].sample,
@@ -235,7 +235,7 @@ end
     )
 end
 
-100.times do
+363.times do
     columns = Column.create!(
         column_type: ['Commercial', 'Residential', 'Corporate',].sample, 
         number_of_floor: Faker::Number.decimal_part(digits: 2), 
@@ -243,11 +243,11 @@ end
         information: Faker::Lorem.sentence(word_count: rand(3..12).floor),
         # information: Faker::Types.complex_rb_hash(number: 1), alternative info -jake
         notes: Faker::Quote.yoda,
-        battery_id: Faker::Number.between(from: 1, to: 100)
+        battery_id: Faker::Number.between(from: 1, to: 214)
     )
 end
 
-100.times do
+573.times do
     elevators = Elevator.create!(
         serial_number: Faker::Number.number(digits: 10),
         model: ['Standard', 'Premium', 'Excelium'].sample, 
@@ -256,7 +256,7 @@ end
         date_of_commissioning: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), 
         date_of_last_inspection: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), 
         notes: Faker::Quote.yoda,
-        column_id: Faker::Number.between(from: 1, to: 100)
+        column_id: Faker::Number.between(from: 1, to: 363)
     )
 end
 
