@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_02_153651) do
+ActiveRecord::Schema.define(version: 2021_11_02_181139) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "address_type"
@@ -46,8 +46,8 @@ ActiveRecord::Schema.define(version: 2021_11_02_153651) do
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "column_id"
-    t.index ["column_id"], name: "index_columns_on_column_id"
+    t.bigint "battery_id"
+    t.index ["battery_id"], name: "index_columns_on_battery_id"
   end
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -144,7 +144,7 @@ ActiveRecord::Schema.define(version: 2021_11_02_153651) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "columns", "columns"
+  add_foreign_key "columns", "batteries"
   add_foreign_key "elevators", "columns"
   add_foreign_key "employees", "users"
 end
