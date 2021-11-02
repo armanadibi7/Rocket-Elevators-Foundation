@@ -10,12 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_02_131821) do
+ActiveRecord::Schema.define(version: 2021_11_02_153651) do
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "address_type"
+    t.string "status"
+    t.string "entity"
+    t.string "number_and_street"
+    t.string "suite_and_apartment"
+    t.string "city"
+    t.string "postal_code"
+    t.string "country"
+    t.string "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "batteries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "type"
     t.string "status"
-    t.date "date_of_commission"
+    t.date "date_of_commissioning"
     t.date "date_of_last_inspection"
     t.string "certificate_of_operations"
     t.string "information"
@@ -36,7 +50,7 @@ ActiveRecord::Schema.define(version: 2021_11_02_131821) do
     t.index ["column_id"], name: "index_columns_on_column_id"
   end
 
-  create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+  create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "company_name"
     t.string "company_address"
     t.string "company_contact_name"
@@ -50,12 +64,12 @@ ActiveRecord::Schema.define(version: 2021_11_02_131821) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "elevators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+  create_table "elevators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "serial_number"
     t.string "model"
     t.string "type"
     t.string "status"
-    t.date "date_of_commission"
+    t.date "date_of_commissioning"
     t.date "date_of_last_inspection"
     t.text "notes"
     t.datetime "created_at", null: false
@@ -64,7 +78,7 @@ ActiveRecord::Schema.define(version: 2021_11_02_131821) do
     t.index ["column_id"], name: "index_elevators_on_column_id"
   end
 
-  create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+  create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "title"
@@ -75,7 +89,7 @@ ActiveRecord::Schema.define(version: 2021_11_02_131821) do
     t.index ["user_id"], name: "index_employees_on_user_id"
   end
 
-  create_table "leads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+  create_table "leads", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "full_name"
     t.string "company_name"
     t.string "email"
@@ -89,7 +103,7 @@ ActiveRecord::Schema.define(version: 2021_11_02_131821) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+  create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "email"
@@ -114,7 +128,7 @@ ActiveRecord::Schema.define(version: 2021_11_02_131821) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
