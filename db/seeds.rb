@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+
 employees = [
     {
         first_name: 'Nicolas',
@@ -66,6 +68,7 @@ employees = [
         last_name: 'Patry-Jessop',
         title: 'Engineer',
         email: 'francis.patry-jessop@codeboxx.biz'
+
     },
     {
         first_name: 'Mathieu',
@@ -154,11 +157,11 @@ employees.each do |employee|
         last_name: employee[:last_name],
         title: employee[:title],
         email: employee[:email],
+        created_at: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'),
+        updated_at: Faker::Date.between(from: '2021-01-01', to: '2021-10-30'),
         user: user   
     )
 end
-
-require 'faker'
 
 100.times do
     leads = Lead.create!(
@@ -171,12 +174,14 @@ require 'faker'
         project_description: Faker::Lorem.paragraph(sentence_count: 2),
         department: ["HR", "Repair", "Maintenance", "Development"].sample, #Need to change this to accurate departments
         message: Faker::Lorem.paragraph(sentence_count: 2),
-        attachment: Faker::LoremFlickr.image
+        attachment: Faker::LoremFlickr.image,
+        created_at: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'),
+        updated_at: Faker::Date.between(from: '2021-01-01', to: '2021-10-30')
     )
 end
 
 150.times do
-    address = Addressy::US.fetch(10).first
+    address = Addressy::US.fetch(150).first
     addresses = Address.create!(
         
         address_type: ["House", "Apartment", "Commercial", "Corporate", "Hybrid"].sample,
@@ -187,7 +192,9 @@ end
         city: address.city,
         postal_code: address.zip,
         country: "USA",
-        notes: Faker::Lorem.sentence(word_count: rand(3..9).floor)
+        notes: Faker::Lorem.sentence(word_count: rand(3..9).floor),
+        created_at: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'),
+        updated_at: Faker::Date.between(from: '2021-01-01', to: '2021-10-30')
     )
 end
 
@@ -203,16 +210,19 @@ end
         service_tech_name: Faker::Name.name, #=> "Tyshawn Johns Sr."
         service_tech_phone: Faker::PhoneNumber.cell_phone, #=> "(186)285-7925"
         service_tech_email: Faker::Internet.unique.email, #=> "eliza@mann.net"
+        created_at: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'),
+        updated_at: Faker::Date.between(from: '2021-01-01', to: '2021-10-30'),
         address_id: Faker::Number.between(from: 1, to: 150)
     )
 
     users = User.create!(
         email: customers[:contact_email],
         password: "password",
+        created_at: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'),
+        updated_at: Faker::Date.between(from: '2021-01-01', to: '2021-10-30'),
         is_admin: TRUE
     )
 }
-
 
 
 179.times do
@@ -223,7 +233,9 @@ end
         admin_phone_numer: Faker::PhoneNumber.cell_phone, 
         tech_full_name: Faker::Name.name, 
         tech_email: Faker::Internet.unique.email, 
-        tech_phone_number: Faker::PhoneNumber.cell_phone, 
+        tech_phone_number: Faker::PhoneNumber.cell_phone,
+        created_at: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'),
+        updated_at: Faker::Date.between(from: '2021-01-01', to: '2021-10-30'),
         address_id: Faker::Number.between(from: 1, to: 150),
         customer_id: Faker::Number.between(from: 1, to: 179) 
     )
@@ -231,11 +243,14 @@ end
 
 186.times do
     building_details = BuildingDetail.create!(
-        information_key: Faker::Number.between(from: 1900, to: 2010), #=> 1968353479
-        value: 'Construction Year', 
+        information_key: "Construction Year", #=> 1968353479
+        value: Faker::Number.between(from: 1900, to: 2000),
+        created_at: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'),
+        updated_at: Faker::Date.between(from: '2021-01-01', to: '2021-10-30'), 
         building_id: Faker::Number.between(from: 1, to: 179)
     )
 end
+
 
 214.times do
     batteries = Battery.create!(
@@ -247,6 +262,8 @@ end
         certificate_of_operations: 'Certified',
         information: Faker::Lorem.sentence(word_count: 11),
         notes: Faker::Lorem.sentence(word_count: rand(5..10).floor),
+        created_at: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'),
+        updated_at: Faker::Date.between(from: '2021-01-01', to: '2021-10-30'),
         building_id: Faker::Number.between(from: 1, to: 179),
         employee_id: Faker::Number.between(from: 1, to: 21) 
     )
@@ -260,6 +277,8 @@ end
         information: Faker::Lorem.sentence(word_count: rand(3..12).floor),
         # information: Faker::Types.complex_rb_hash(number: 1), alternative info -jake
         notes: Faker::Quote.yoda,
+        created_at: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'),
+        updated_at: Faker::Date.between(from: '2021-01-01', to: '2021-10-30'),
         battery_id: Faker::Number.between(from: 1, to: 214)
     )
 end
@@ -273,6 +292,8 @@ end
         date_of_commissioning: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), 
         date_of_last_inspection: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), 
         notes: Faker::Quote.yoda,
+        created_at: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'),
+        updated_at: Faker::Date.between(from: '2021-01-01', to: '2021-10-30'),
         column_id: Faker::Number.between(from: 1, to: 363)
     )
 end
