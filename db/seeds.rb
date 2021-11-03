@@ -237,7 +237,8 @@ end
         certificate_of_operations: 'Certified',
         information: Faker::Lorem.sentence(word_count: 11),
         notes: Faker::Lorem.sentence(word_count: rand(5..10).floor),
-        building_id: Faker::Number.between(from: 1, to: 179) 
+        building_id: Faker::Number.between(from: 1, to: 179),
+        employee_id: Faker::Number.between(from: 1, to: 21) 
     )
 end
 
