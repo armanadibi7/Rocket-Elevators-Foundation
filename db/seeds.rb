@@ -231,8 +231,8 @@ end
 
 186.times do
     building_details = BuildingDetail.create!(
-        information_key: Faker::Number.number(digits: 10), #=> 1968353479
-        value: Faker::Number.between(from: 1000000, to: 7999999), 
+        information_key: Faker::Number.between(from: 1900, to: 2010), #=> 1968353479
+        value: 'Construction Year', 
         building_id: Faker::Number.between(from: 1, to: 179)
     )
 end
