@@ -8,17 +8,17 @@ This video gives a brief explanation of the process for submitting a quote form 
 Link: <em>https://www.youtube.com/watch?v=aFcNlYyYRYk</em>
 
 ### Back Office Admin Logins
-Nicolas Genest | CEO | nicolas.genest@codeboxx.biz | password: codeboxx1
+Nicolas Genest | CEO | nicolas.genest@codeboxx.biz | password: password
 
-Nadya Fortier | Director | nadya.fortier@codeboxx.biz | password: codeboxx1
+Nadya Fortier | Director | nadya.fortier@codeboxx.biz | password: password
 
-Martin Chantal | Director Assistant | martin.chantal@codeboxx.biz | password: codeboxx1
+Martin Chantal | Director Assistant | martin.chantal@codeboxx.biz | password: password
 
-Mathieu Houde | Captain | mathieu.houde@codeboxx.biz | password: codeboxx1
+Mathieu Houde | Captain | mathieu.houde@codeboxx.biz | password: password
 
-Abdul Akeeb | Developer | abdul.akeeb@codebozz.biz | password: codeboxx1
+Abdul Akeeb | Developer | abdul.akeeb@codebozz.biz | password: password
 
-Timothy Wever | Developer | timothy.wever@codeboxx.biz | password: codeboxx1
+Timothy Wever | Developer | timothy.wever@codeboxx.biz | password: password
 
 ### Instructions
 
