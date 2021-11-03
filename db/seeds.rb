@@ -176,7 +176,7 @@ require 'faker'
 end
 
 150.times do
-    address = Addressy::US.fetch(10).first
+    address = Addressy::US.fetch(150).first
     addresses = Address.create!(
         
         address_type: ["House", "Apartment", "Commercial", "Corporate", "Hybrid"].sample,
@@ -265,6 +265,60 @@ end
         notes: Faker::Quote.yoda,
         column_id: Faker::Number.between(from: 1, to: 363)
     )
+end
+
+525.times do
+    quotes = Quote.create!(
+        company_name: Faker::Company.name,
+        email: Faker::Internet.email(domain: 'business'),
+        phone_number: Faker::PhoneNumber.cell_phone,
+        building_type: ["Residential", "Commercial", "Corporate", "Hybrid"].sample,
+        apartments: 0,
+        floors: rand(1..100).floor,
+        basements: rand(1..45).floor,
+        elevators: 0,
+        companies: 0,
+        parking_spots: 0,
+        corporations: 0,
+        maximum_occupancy: 0,
+        business_hours: 0,
+        services_type: ["Standard", "Premium", "Excelium"].sample,
+        amount_of_elevator: '',
+        price_per_elevator: '',
+        installation: 0,
+        price_elevator_total: 0,
+        total_price: 0
+    )
+
+        if quotes.building_type == "Residential"
+            quotes.update(apartments: rand(1..1000).floor)\
+            # total = quotes.price_elevator_total + quotes.installation
+            # quotes.update_attributes(total_price: total)
+
+        elsif quotes.building_type == "Commercial"
+            quotes.update(corporations: rand(1..20).floor)
+            quotes.update(elevators: rand(1..35).floor)
+            quotes.update(parking_spots: rand(1..140).floor)
+            # total = quotes.price_elevator_total + quotes.installation
+            # quotes.update_attributes(total_price: total)
+
+        elsif quotes.building_type == "Corporate"
+            quotes.update(corporations: rand(1..20).floor)
+            quotes.update(parking_spots: rand(1..140).floor)
+            quotes.update(maximum_occupancy: rand(1..1000).floor)
+            # total = quotes.price_elevator_total + quotes.installation
+            # quotes.update_attributes(total_price: total)
+        end
+
+        if quotes.building_type == "Hybrid"
+            quotes.update(business_hours: rand(1..24).floor)
+            # total = quotes.price_elevator_total + quotes.installation
+            # quotes.update_attributes(total_price: total)
+
+        end
+
+        #services_type logic similar to the js
+        
 end
 
 puts "Seeding Done!"
