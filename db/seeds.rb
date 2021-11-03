@@ -193,6 +193,8 @@ end
         postal_code: address.zip,
         country: "USA",
         notes: Faker::Lorem.sentence(word_count: rand(3..9).floor)
+        created_at: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'),
+        updated_at: Faker::Date.between(from: '2021-01-01', to: '2021-10-30')
     )
 end
 
