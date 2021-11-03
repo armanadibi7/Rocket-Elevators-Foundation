@@ -169,14 +169,14 @@ require 'faker'
         phone_number: Faker::PhoneNumber.cell_phone,
         project_name: Faker::Name.unique.name,
         project_description: Faker::Lorem.paragraph(sentence_count: 2),
-        department: ["HR", "Repair", "Maintenance", "Development"].sample,
+        department: ["HR", "Repair", "Maintenance", "Development"].sample, #Need to change this to accurate departments
         message: Faker::Lorem.paragraph(sentence_count: 2),
         attachment: Faker::LoremFlickr.image
     )
 end
 
 150.times do
-    address = Addressy::US.fetch(150).first
+    address = Addressy::US.fetch(10).first
     addresses = Address.create!(
         
         address_type: ["House", "Apartment", "Commercial", "Corporate", "Hybrid"].sample,
@@ -301,7 +301,7 @@ end
     )
 
         if quotes.building_type == "Residential"
-            quotes.update(apartments: rand(1..1000).floor)\
+            quotes.update(apartments: rand(1..1000).floor)
             # total = quotes.price_elevator_total + quotes.installation
             # quotes.update_attributes(total_price: total)
 
@@ -327,7 +327,7 @@ end
 
         end
 
-        #services_type logic similar to the js
+        #services_type logic similar to the js loop
         
 end
 
