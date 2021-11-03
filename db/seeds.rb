@@ -164,8 +164,24 @@ end
 require 'faker'
 
 100.times do
+    leads = Lead.create!(
+
+        full_name: Faker::Name.name, #=> "Tyshawn Johns Sr."
+        company_name: Faker::Company.name, #=> "Hirthe-Ritchie"
+        email: Faker::Internet.unique.email, #=> "eliza@mann.net"
+        phone_number: Faker::PhoneNumber.cell_phone, #=> "(186)285-7925"
+        project_name: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), #=> #<Date: 2014-09-24>
+        project_description: Faker::Lorem.sentence(word_count: 11),
+        department: 'Customer Service',
+        message: Faker::Quote.yoda #=> "Use your feelings, Obi-Wan, and find him you will."
+
+    )
+end
+
+
+100.times do
     address = Addressy::US.fetch(10).first
-    addresses = Address.new(
+    addresses = Address.create!(
         
         address_type: ["House", "Apartment", "Commercial", "Corporate", "Hybrid"].sample,
         status: ["Active", "Inactive"].sample,
@@ -177,27 +193,38 @@ require 'faker'
         country: "USA",
         notes: Faker::Lorem.sentence(word_count: rand(3..9).floor)
     )
-    addresses.save
 end
 
 100.times do
-    customers = Customer.new(
+    customers = Customer.create!(
 
         company_name: Faker::Company.name, #=> "Hirthe-Ritchie"
         #company_address: addressy.full, #link to real address with addressy
-        company_contact_name: Faker::Name.name , #=> "Tyshawn Johns Sr."
+        company_contact_name: Faker::Name.name, #=> "Tyshawn Johns Sr."
         contact_phone: Faker::PhoneNumber.cell_phone, #=> "(186)285-7925"
         contact_email: Faker::Internet.unique.email, #=> "eliza@mann.net"
         company_description: Faker::Company.catch_phrase, #=> "Business-focused coherent parallelism"
-        service_tech_name: Faker::Name.name , #=> "Tyshawn Johns Sr."
+        service_tech_name: Faker::Name.name, #=> "Tyshawn Johns Sr."
         service_tech_phone: Faker::PhoneNumber.cell_phone, #=> "(186)285-7925"
         service_tech_email: Faker::Internet.unique.email #=> "eliza@mann.net"
     )
-    customers.save
 end
 
 100.times do
-    batteries = Battery.new(
+    buildings = Buildings.create!(
+
+        admin_name: Faker::Name.name, #=> "Tyshawn Johns Sr."
+        admin_email: Faker::Internet.unique.email, #=> "eliza@mann.net"
+        admin_phone_numer: Faker::PhoneNumber.cell_phone, #=> "(186)285-7925"
+        tech_full_name: Faker::Boolean.boolean, #=> true
+        tech_email: Faker::Internet.unique.email, #=> "eliza@mann.net"
+        tech_phone_number: Faker::PhoneNumber.cell_phone #=> "(186)285-7925"
+
+    )
+end
+
+100.times do
+    batteries = Battery.create!(
 
         battery_type: ["Residential", "Commercial", "Corporate", "Hybrid"].sample,
         status: "Active", 
@@ -207,22 +234,22 @@ end
         information: Faker::Lorem.sentence(word_count: 11),
         notes: Faker::Lorem.sentence(word_count: rand(3..12).floor)
     )
-    batteries.save
 end
 
 100.times do
-    columns = Column.new(
+    columns = Column.create!(
+
         column_type: ['Commercial', 'Residential', 'Corporate',].sample, 
         number_of_floor: Faker::Number.decimal_part(digits: 2), #=> "09"
         status: Faker::Boolean.boolean, #=> true
         information: Faker::Types.complex_rb_hash(number: 1), #=> {user: {first: "bob", last: "marley"}}
         notes: Faker::Quote.yoda #=> "Use your feelings, Obi-Wan, and find him you will."
     )
-    columns.save
 end
 
 100.times do
-    elevators = Elevator.new(
+    elevators = Elevators.create!(
+
         serial_number: Faker::Number.number(digits: 10), #=> 1968353479
         model: ['Standard', 'Premium', 'Excelium'].sample, 
         elevator_type: ['Commercial', 'Residential', 'Corporate',].sample, 
@@ -231,22 +258,6 @@ end
         date_of_last_inspection: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), #=> #<Date: 2014-09-24>
         notes: Faker::Quote.yoda #=> "Use your feelings, Obi-Wan, and find him you will."
     )
-    elevators.save
 end
 
-100.times do
-    leads = Leads.new(
-
-        full_name: Faker::Name.name , #=> "Tyshawn Johns Sr."
-        company_name: ['Standard', 'Premium', 'Excelium'].sample, 
-        email: ['Commercial', 'Residential', 'Corporate',].sample, 
-        phone_number: Faker::Boolean.boolean, #=> true
-        project_name: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), #=> #<Date: 2014-09-24>
-        project_description: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), #=> #<Date: 2014-09-24>
-        department: Faker::Quote.yoda #=> "Use your feelings, Obi-Wan, and find him you will."
-        message:
-
-    )
-    leads.save
-end
 puts "Seeding Done!"
