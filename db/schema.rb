@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_02_194511) do
+ActiveRecord::Schema.define(version: 2021_11_03_105541) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "address_type"
@@ -36,6 +36,19 @@ ActiveRecord::Schema.define(version: 2021_11_02_194511) do
     t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "building_id"
+    t.bigint "employee_id"
+    t.index ["building_id"], name: "index_batteries_on_building_id"
+    t.index ["employee_id"], name: "index_batteries_on_employee_id"
+  end
+
+  create_table "building_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "information_key"
+    t.string "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "building_id"
+    t.index ["building_id"], name: "index_building_details_on_building_id"
   end
 
   create_table "buildings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
@@ -67,7 +80,6 @@ ActiveRecord::Schema.define(version: 2021_11_02_194511) do
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "company_name"
-    t.string "company_address"
     t.string "company_contact_name"
     t.string "contact_phone"
     t.string "contact_email"
@@ -78,7 +90,9 @@ ActiveRecord::Schema.define(version: 2021_11_02_194511) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "address_id"
+    t.bigint "user_id"
     t.index ["address_id"], name: "index_customers_on_address_id"
+    t.index ["user_id"], name: "index_customers_on_user_id"
   end
 
   create_table "elevators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
@@ -120,9 +134,8 @@ ActiveRecord::Schema.define(version: 2021_11_02_194511) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
+  create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "company_name"
     t.string "email"
     t.string "phone_number"
     t.string "building_type"
@@ -153,18 +166,19 @@ ActiveRecord::Schema.define(version: 2021_11_02_194511) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "first_name"
-    t.string "last_name"
-    t.string "phone_number"
     t.boolean "is_admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "buildings", "addresses"
-  add_foreign_key "buildings", "customers"
-  add_foreign_key "columns", "batteries"
-  add_foreign_key "customers", "addresses"
-  add_foreign_key "elevators", "columns"
+  add_foreign_key "batteries", "buildings", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "batteries", "employees", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "building_details", "buildings", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "buildings", "addresses", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "buildings", "customers", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "columns", "batteries", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "customers", "addresses", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "customers", "users", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "elevators", "columns", on_update: :cascade, on_delete: :cascade
   add_foreign_key "employees", "users"
 end

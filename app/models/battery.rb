@@ -1,3 +1,5 @@
 class Battery < ApplicationRecord
-    has_many :elevators, dependent: :delete_all
+    belongs_to :building
+    belongs_to :employee
+    has_many :columns
 end

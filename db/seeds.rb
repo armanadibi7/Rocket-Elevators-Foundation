@@ -143,11 +143,8 @@ employees = [
     
 employees.each do |employee|
     user = User.create!(
-        first_name: employee[:first_name],
-        last_name: employee[:last_name],
-        phone_number: 1112223333,
         email: employee[:email],
-        password: "codeboxx1",
+        password: "password",
         is_admin: TRUE, 
     )
 
@@ -165,21 +162,20 @@ require 'faker'
 
 100.times do
     leads = Lead.create!(
-
-        full_name: Faker::Name.name, #=> "Tyshawn Johns Sr."
-        company_name: Faker::Company.name, #=> "Hirthe-Ritchie"
-        email: Faker::Internet.unique.email, #=> "eliza@mann.net"
-        phone_number: Faker::PhoneNumber.cell_phone, #=> "(186)285-7925"
-        project_name: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), #=> #<Date: 2014-09-24>
-        project_description: Faker::Lorem.sentence(word_count: 11),
-        department: 'Customer Service',
-        message: Faker::Quote.yoda #=> "Use your feelings, Obi-Wan, and find him you will."
-
+        
+        full_name: Faker::Name.name,
+        company_name: Faker::Company.name,
+        email: Faker::Internet.email,
+        phone_number: Faker::PhoneNumber.cell_phone,
+        project_name: Faker::Name.unique.name,
+        project_description: Faker::Lorem.paragraph(sentence_count: 2),
+        department: ["HR", "Repair", "Maintenance", "Development"].sample,
+        message: Faker::Lorem.paragraph(sentence_count: 2),
+        attachment: Faker::LoremFlickr.image
     )
 end
 
-
-100.times do
+150.times do
     address = Addressy::US.fetch(10).first
     addresses = Address.create!(
         
@@ -195,68 +191,79 @@ end
     )
 end
 
-100.times do
+241.times {
     customers = Customer.create!(
 
         company_name: Faker::Company.name, #=> "Hirthe-Ritchie"
-        #company_address: addressy.full, #link to real address with addressy
+        # company_address: address.full, #get randomly from address table
         company_contact_name: Faker::Name.name, #=> "Tyshawn Johns Sr."
         contact_phone: Faker::PhoneNumber.cell_phone, #=> "(186)285-7925"
         contact_email: Faker::Internet.unique.email, #=> "eliza@mann.net"
         company_description: Faker::Company.catch_phrase, #=> "Business-focused coherent parallelism"
         service_tech_name: Faker::Name.name, #=> "Tyshawn Johns Sr."
         service_tech_phone: Faker::PhoneNumber.cell_phone, #=> "(186)285-7925"
-        service_tech_email: Faker::Internet.unique.email #=> "eliza@mann.net"
+        service_tech_email: Faker::Internet.unique.email, #=> "eliza@mann.net"
+        address_id: Faker::Number.between(from: 1, to: 150)
+    )
+
+    users = User.create!(
+        email: customers[:contact_email],
+        password: "password",
+        is_admin: TRUE
+    )
+}
+
+179.times do
+    buildings = Building.create!(
+        admin_name: Faker::Name.name, 
+        # company_address: address.full, 
+        admin_email: Faker::Internet.unique.email, 
+        admin_phone_numer: Faker::PhoneNumber.cell_phone, 
+        tech_full_name: Faker::Name.name, 
+        tech_email: Faker::Internet.unique.email, 
+        tech_phone_number: Faker::PhoneNumber.cell_phone, 
+        address_id: Faker::Number.between(from: 1, to: 150),
+        customer_id: Faker::Number.between(from: 1, to: 179) 
     )
 end
 
-100.times do
-    buildings = Buildings.create!(
-
-        admin_name: Faker::Name.name, #=> "Tyshawn Johns Sr."
-        admin_email: Faker::Internet.unique.email, #=> "eliza@mann.net"
-        admin_phone_numer: Faker::PhoneNumber.cell_phone, #=> "(186)285-7925"
-        tech_full_name: Faker::Boolean.boolean, #=> true
-        tech_email: Faker::Internet.unique.email, #=> "eliza@mann.net"
-        tech_phone_number: Faker::PhoneNumber.cell_phone #=> "(186)285-7925"
-
-    )
-end
-
-100.times do
+214.times do
     batteries = Battery.create!(
 
         battery_type: ["Residential", "Commercial", "Corporate", "Hybrid"].sample,
         status: "Active", 
-        date_of_commissioning: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), #=> #<Date: 2014-09-24>, 
-        date_of_last_inspection: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), #=> #<Date: 2014-09-24>, 
+        date_of_commissioning: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), 
+        date_of_last_inspection: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), 
         certificate_of_operations: 'Certified',
         information: Faker::Lorem.sentence(word_count: 11),
-        notes: Faker::Lorem.sentence(word_count: rand(3..12).floor)
+        notes: Faker::Lorem.sentence(word_count: rand(5..10).floor),
+        building_id: Faker::Number.between(from: 1, to: 179),
+        employee_id: Faker::Number.between(from: 1, to: 21) 
     )
 end
 
-100.times do
+363.times do
     columns = Column.create!(
-
         column_type: ['Commercial', 'Residential', 'Corporate',].sample, 
-        number_of_floor: Faker::Number.decimal_part(digits: 2), #=> "09"
-        status: Faker::Boolean.boolean, #=> true
-        information: Faker::Types.complex_rb_hash(number: 1), #=> {user: {first: "bob", last: "marley"}}
-        notes: Faker::Quote.yoda #=> "Use your feelings, Obi-Wan, and find him you will."
+        number_of_floor: Faker::Number.decimal_part(digits: 2), 
+        status: 'Active', #Should be either active or inactive, based off of battery??? -jake
+        information: Faker::Lorem.sentence(word_count: rand(3..12).floor),
+        # information: Faker::Types.complex_rb_hash(number: 1), alternative info -jake
+        notes: Faker::Quote.yoda,
+        battery_id: Faker::Number.between(from: 1, to: 214)
     )
 end
 
-100.times do
-    elevators = Elevators.create!(
-
-        serial_number: Faker::Number.number(digits: 10), #=> 1968353479
+573.times do
+    elevators = Elevator.create!(
+        serial_number: Faker::Number.number(digits: 10),
         model: ['Standard', 'Premium', 'Excelium'].sample, 
         elevator_type: ['Commercial', 'Residential', 'Corporate',].sample, 
-        status: Faker::Boolean.boolean, #=> true
-        date_of_commissioning: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), #=> #<Date: 2014-09-24>
-        date_of_last_inspection: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), #=> #<Date: 2014-09-24>
-        notes: Faker::Quote.yoda #=> "Use your feelings, Obi-Wan, and find him you will."
+        status: ["Active", "Inactive"].sample,
+        date_of_commissioning: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), 
+        date_of_last_inspection: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), 
+        notes: Faker::Quote.yoda,
+        column_id: Faker::Number.between(from: 1, to: 363)
     )
 end
 
