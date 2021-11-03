@@ -191,7 +191,7 @@ end
     )
 end
 
-241.times do
+241.times {
     customers = Customer.create!(
 
         company_name: Faker::Company.name, #=> "Hirthe-Ritchie"
@@ -205,7 +205,13 @@ end
         service_tech_email: Faker::Internet.unique.email, #=> "eliza@mann.net"
         address_id: Faker::Number.between(from: 1, to: 150)
     )
-end
+
+    users = User.create!(
+        email: customers[:contact_email],
+        password: "password",
+        is_admin: TRUE
+    )
+}
 
 179.times do
     buildings = Building.create!(

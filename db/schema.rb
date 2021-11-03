@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_03_024438) do
+ActiveRecord::Schema.define(version: 2021_11_03_031332) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "address_type"
@@ -79,7 +79,9 @@ ActiveRecord::Schema.define(version: 2021_11_03_024438) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "address_id"
+    t.bigint "user_id"
     t.index ["address_id"], name: "index_customers_on_address_id"
+    t.index ["user_id"], name: "index_customers_on_user_id"
   end
 
   create_table "elevators", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -164,6 +166,7 @@ ActiveRecord::Schema.define(version: 2021_11_03_024438) do
   add_foreign_key "buildings", "customers", on_update: :cascade, on_delete: :cascade
   add_foreign_key "columns", "batteries", on_update: :cascade, on_delete: :cascade
   add_foreign_key "customers", "addresses", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "customers", "users", on_update: :cascade, on_delete: :cascade
   add_foreign_key "elevators", "columns", on_update: :cascade, on_delete: :cascade
   add_foreign_key "employees", "users"
 end
