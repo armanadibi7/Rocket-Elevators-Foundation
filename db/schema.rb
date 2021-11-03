@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_03_105541) do
+ActiveRecord::Schema.define(version: 2021_11_03_164917) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "address_type"
@@ -132,6 +132,7 @@ ActiveRecord::Schema.define(version: 2021_11_03_105541) do
     t.binary "attachment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "created_on"
   end
 
   create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -156,6 +157,7 @@ ActiveRecord::Schema.define(version: 2021_11_03_105541) do
     t.string "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "created_on"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
