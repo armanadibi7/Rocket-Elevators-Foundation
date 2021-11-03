@@ -1,3 +1,5 @@
 class Battery < ApplicationRecord
-    has_many :columns, dependent: :delete_all
+    belongs_to :building
+    #belongs_to :admin, optional: true
+    has_many :columns
 end

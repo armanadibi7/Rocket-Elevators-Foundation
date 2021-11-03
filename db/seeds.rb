@@ -216,7 +216,7 @@ end
         tech_full_name: Faker::Name.name, 
         tech_email: Faker::Internet.unique.email, 
         tech_phone_number: Faker::PhoneNumber.cell_phone, 
-        address_id: Faker::Number.between(from: 1, to: 100),
+        address_id: Faker::Number.between(from: 1, to: 150),
         customer_id: Faker::Number.between(from: 1, to: 179) 
     )
 end
@@ -230,7 +230,8 @@ end
         date_of_last_inspection: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), 
         certificate_of_operations: 'Certified',
         information: Faker::Lorem.sentence(word_count: 11),
-        notes: Faker::Lorem.sentence(word_count: rand(5..10).floor)
+        notes: Faker::Lorem.sentence(word_count: rand(5..10).floor),
+        building_id: Faker::Number.between(from: 1, to: 179) 
     )
 end
 
