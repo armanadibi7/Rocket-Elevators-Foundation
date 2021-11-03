@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2021_11_03_105541) do
     t.index ["employee_id"], name: "index_batteries_on_employee_id"
   end
 
-  create_table "building_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "building_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "information_key"
     t.string "value"
     t.datetime "created_at", null: false
@@ -134,7 +134,7 @@ ActiveRecord::Schema.define(version: 2021_11_03_105541) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "quotes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
     t.string "company_name"
     t.string "email"
     t.string "phone_number"

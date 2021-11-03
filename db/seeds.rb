@@ -213,6 +213,14 @@ end
     )
 }
 
+186.times do
+    building_details = Building_Details.create!(
+        information_key: Faker::Number.number(digits: 10), #=> 1968353479
+        value: Faker::Number.between(from: 1000000, to: 7999999), 
+        building_id: Faker::Number.between(from: 1, to: 179)
+    )
+end
+
 179.times do
     buildings = Building.create!(
         admin_name: Faker::Name.name, 
