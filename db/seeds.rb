@@ -209,7 +209,6 @@ end
 
 179.times do
     buildings = Building.create!(
-
         admin_name: Faker::Name.name, 
         # company_address: address.full, 
         admin_email: Faker::Internet.unique.email, 
