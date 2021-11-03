@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_03_031332) do
+ActiveRecord::Schema.define(version: 2021_11_03_091141) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "address_type"
@@ -38,6 +38,15 @@ ActiveRecord::Schema.define(version: 2021_11_03_031332) do
     t.datetime "updated_at", null: false
     t.bigint "building_id"
     t.index ["building_id"], name: "index_batteries_on_building_id"
+  end
+
+  create_table "building_details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "information_key"
+    t.string "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "building_id"
+    t.index ["building_id"], name: "index_building_details_on_building_id"
   end
 
   create_table "buildings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -162,6 +171,7 @@ ActiveRecord::Schema.define(version: 2021_11_03_031332) do
   end
 
   add_foreign_key "batteries", "buildings", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "building_details", "buildings", on_update: :cascade, on_delete: :cascade
   add_foreign_key "buildings", "addresses", on_update: :cascade, on_delete: :cascade
   add_foreign_key "buildings", "customers", on_update: :cascade, on_delete: :cascade
   add_foreign_key "columns", "batteries", on_update: :cascade, on_delete: :cascade
