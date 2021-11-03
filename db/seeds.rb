@@ -192,7 +192,7 @@ end
         city: address.city,
         postal_code: address.zip,
         country: "USA",
-        notes: Faker::Lorem.sentence(word_count: rand(3..9).floor)
+        notes: Faker::Lorem.sentence(word_count: rand(3..9).floor),
         created_at: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'),
         updated_at: Faker::Date.between(from: '2021-01-01', to: '2021-10-30')
     )
@@ -243,8 +243,8 @@ end
 
 186.times do
     building_details = BuildingDetail.create!(
-        information_key: Faker::Number.number(digits: 10), #=> 1968353479
-        value: Faker::Number.between(from: 1000000, to: 7999999),
+        information_key: "Construction Year", #=> 1968353479
+        value: Faker::Number.between(from: 1900, to: 2000),
         created_at: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'),
         updated_at: Faker::Date.between(from: '2021-01-01', to: '2021-10-30'), 
         building_id: Faker::Number.between(from: 1, to: 179)
