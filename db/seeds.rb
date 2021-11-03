@@ -200,7 +200,7 @@ end
         contact_phone: Faker::PhoneNumber.cell_phone, #=> "(186)285-7925"
         contact_email: Faker::Internet.unique.email, #=> "eliza@mann.net"
         company_description: Faker::Company.catch_phrase, #=> "Business-focused coherent parallelism"
-        service_tech_name: Faker::Name.name , #=> "Tyshawn Johns Sr."
+        service_tech_name: Faker::Name.name, #=> "Tyshawn Johns Sr."
         service_tech_phone: Faker::PhoneNumber.cell_phone, #=> "(186)285-7925"
         service_tech_email: Faker::Internet.unique.email, #=> "eliza@mann.net"
         address_id: Faker::Number.between(from: 1, to: 150)
@@ -212,6 +212,14 @@ end
         is_admin: TRUE
     )
 }
+
+186.times do
+    building_details = Building_Details.create!(
+        information_key: Faker::Number.number(digits: 10), #=> 1968353479
+        value: Faker::Number.between(from: 1000000, to: 7999999), 
+        building_id: Faker::Number.between(from: 1, to: 179)
+    )
+end
 
 179.times do
     buildings = Building.create!(
