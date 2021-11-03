@@ -6,8 +6,8 @@ class QuoteController < ApplicationController
         quote = Quote.new
 
         #Customer Info
-        quote.first_name = params['first_name']
-        quote.last_name = params['last_name']
+        quote.company_name = params['company_name']
+        # quote.last_name = params['last_name']
         quote.email = params['email']
         quote.phone_number = params['phone_number']
    
