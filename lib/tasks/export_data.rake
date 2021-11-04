@@ -11,6 +11,15 @@ namespace :export_data do
             VALUES (#{lead.id}, '#{lead.created_at}', '#{lead.company_name}', '#{lead.email}', '#{lead.project_name}')")
         end
 
+
+        connection.exec ("TRUNCATE fact_quotes RESTART IDENTITY")
+        Quote.all.each do |quote|
+            connection.exec("INSERT INTO \"fact_quotes\" (quote_id, creation_date, company_name, email, number_of_elevators) 
+            VALUES (#{quote.id}, '#{quote.created_at}', '#{quote.company_name}', '#{quote.email}', #{quote.amount_of_elevator})")          
+        end
+
+
+
     end
 
 end
