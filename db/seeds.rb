@@ -163,7 +163,7 @@ employees.each do |employee|
     )
 end
 
-100.times do
+15.times do
     leads = Lead.create!(
         
         full_name: Faker::Name.name,
