@@ -314,26 +314,26 @@ end
         standard = 0.11
         priceElevtr = 7565
         elevatorTotal = 7565 * amntElevtr
-        iFees = standard * elevatorTotal 
+        iFees = (standard * elevatorTotal).round(2)
         total = elevatorTotal + iFees
      
     elsif servicesType == "Premium"
         premium = 0.13
         priceElevtr = 12345
         elevatorTotal = 12345 * amntElevtr
-        iFees = premium * elevatorTotal 
+        iFees = (premium * elevatorTotal).round(2) 
         total = elevatorTotal + iFees
         
     elsif servicesType == "Excelium"
         excelium = 0.16
         priceElevtr = 15400
         elevatorTotal = 15400 * amntElevtr
-        iFees = excelium * elevatorTotal 
+        iFees = (excelium * elevatorTotal).round(2)  
         total = elevatorTotal + iFees
     end
 
     quotes = Quote.create!(
-        company_name: [Faker::Name.last_name + " " + Faker::Company.suffix, Faker::Restaurant.name, Faker::University.name, Faker::Space.agency].sample,
+        company_name: [Faker::Name.last_name + " " + Faker::Company.suffix, Faker::Restaurant.name].sample,
         email: Faker::Internet.email(domain: 'business'),
         phone_number: Faker::PhoneNumber.cell_phone,
         building_type: buildingType,
@@ -351,7 +351,9 @@ end
         price_per_elevator: priceElevtr,
         installation: iFees,
         price_elevator_total: elevatorTotal,
-        total_price: total
+        total_price: total,
+        created_at: Faker::Date.between(from: '2018-09-23', to: '2021-09-25'),
+        updated_at: Faker::Date.between(from: '2018-09-23', to: '2021-09-25')
     )
 
 end
@@ -366,6 +368,7 @@ end
     numParking = rand(2..100)
     numElevators = rand(1..50)
     amntElevtr = numElevators
+    
 
     if servicesType == "Standard"
         standard = 0.11
@@ -408,7 +411,9 @@ end
         price_per_elevator: priceElevtr,
         installation: iFees,
         price_elevator_total: elevatorTotal,
-        total_price: total
+        total_price: total,
+        created_at: Faker::Date.between(from: '2018-09-23', to: '2021-09-25'),
+        updated_at: Faker::Date.between(from: '2018-09-23', to: '2021-09-25')
     )
 
 end
@@ -422,7 +427,8 @@ end
     numCorp = rand(2..100)
     numParking = rand(2..100)
     numOcc = rand(1..50)
-    amntElevtr = numElevators
+    amntElevtr = 1
+    numElevators = 1
 
     if servicesType == "Standard"
         standard = 0.11
@@ -465,7 +471,9 @@ end
         price_per_elevator: priceElevtr,
         installation: iFees,
         price_elevator_total: elevatorTotal,
-        total_price: total
+        total_price: total,
+        created_at: Faker::Date.between(from: '2018-09-23', to: '2021-09-25'),
+        updated_at: Faker::Date.between(from: '2018-09-23', to: '2021-09-25') 
     )
 
 end
@@ -480,7 +488,8 @@ end
     numParking = rand(2..100)
     numOcc = rand(1..50)
     numHours = rand(1..24)
-    amntElevtr = numElevators
+    amntElevtr = 1
+    numElevators = 1
 
     if servicesType == "Standard"
         standard = 0.11
@@ -505,7 +514,7 @@ end
     end
 
     quotes = Quote.create!(
-        company_name: [Faker::Name.last_name + " " + Faker::Company.suffix, Faker::Restaurant.name, Faker::University.name, Faker::Space.agency].sample,
+        company_name: [Faker::Name.last_name + " " + Faker::Company.suffix, Faker::Restaurant.name, Faker::University.name].sample,
         email: Faker::Internet.email(domain: 'business'),
         phone_number: Faker::PhoneNumber.cell_phone,
         building_type: buildingType,
@@ -523,7 +532,9 @@ end
         price_per_elevator: priceElevtr,
         installation: iFees,
         price_elevator_total: elevatorTotal,
-        total_price: total
+        total_price: total,
+        created_at: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'),
+        updated_at: Faker::Date.between(from: '2018-09-23', to: '2021-09-25') 
     )
 
 end
