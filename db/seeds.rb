@@ -172,7 +172,7 @@ end
         phone_number: Faker::PhoneNumber.cell_phone,
         project_name: Faker::Name.unique.name,
         project_description: Faker::Lorem.paragraph(sentence_count: 2),
-        department: ["HR", "Repair", "Maintenance", "Development"].sample,
+        department: ["HR", "Repair", "Maintenance", "Development"].sample, #Need to change this to accurate departments
         message: Faker::Lorem.paragraph(sentence_count: 2),
         attachment: Faker::LoremFlickr.image,
         created_at: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'),
@@ -299,56 +299,94 @@ end
 end
 
 525.times do
+
+    buildingType = ["Residential", "Commercial", "Corporate", "Hybrid"].sample
+    servicesType = ["Standard", "Premium", "Excelium"].sample
+    numApt = 0
+    numFlr = 0
+    numBas = 0
+    numElevators = 0
+    numCompanies = 0
+    numParking = 0
+    amntElevtr = 0
+    numCorp = 0
+    numOcc = 0
+    numHours = 0
+    priceElevtr = 0
+    iFees = 0
+    elevatorTotal = 0
+    total = 0
+
+    # Determine data based off of building type
+    if buildingType == "Residential"
+        numApt = rand(2..1000)
+        numFlr = rand(2..100)
+        numBas = rand(2..10)
+        # numElevators = 
+
+    elsif buildingType == "Commercial"
+        numCorp = rand(1..20)
+        numElevators = rand(1..35)
+        numParking = rand(1..140)
+        
+    elsif buildingType == "Corporate"
+        numCorp = rand(1..20)
+        numParking = rand(1..140)
+        numOcc = rand(1..1000)
+        
+    end
+
+    if buildingType == "Hybrid"
+        numHours = rand(1..24)
+        
+    end
+
+    # Determine installation fees and elevator unit price for service type
+    if servicesType == "Standard"
+        standard = 0.11
+        elevatorTotal = standard * amntElevtr
+        priceElevtr = 7567
+        iFees = standard * elevatorTotal 
+        total = elevatorTotal + iFees
+     
+    elsif servicesType == "Premium"
+        premium = 0.13
+        elevatorTotal = premium * amntElevtr
+        priceElevtr = 12345
+        iFees = premium * elevatorTotal
+        total = elevatorTotal + iFees
+        
+    elsif servicesType == "Excellium"
+        excellium = 0.16
+        elevatorTotal = excellium * amntElevtr
+        priceElevtr = 15400
+        iFees = excellium * elevatorTotal
+        total = elevatorTotal + iFees
+    end
+
     quotes = Quote.create!(
         company_name: Faker::Company.name,
         email: Faker::Internet.email(domain: 'business'),
         phone_number: Faker::PhoneNumber.cell_phone,
-        building_type: ["Residential", "Commercial", "Corporate", "Hybrid"].sample,
-        apartments: 0,
-        floors: rand(1..100).floor,
-        basements: rand(1..45).floor,
-        elevators: 0,
-        companies: 0,
-        parking_spots: 0,
-        corporations: 0,
-        maximum_occupancy: 0,
-        business_hours: 0,
-        services_type: ["Standard", "Premium", "Excelium"].sample,
-        amount_of_elevator: '',
-        price_per_elevator: '',
-        installation: 0,
-        price_elevator_total: 0,
-        total_price: 0
+        building_type: buildingType,
+        apartments: numApt,
+        floors: numFlr,
+        basements: numBas,
+        elevators: numElevators,
+        companies: numCompanies,
+        parking_spots: numParking,
+        corporations: numCorp,
+        maximum_occupancy: numOcc,
+        business_hours: numHours,
+        services_type: servicesType,
+        amount_of_elevator: amntElevtr,
+        price_per_elevator: priceElevtr,
+        installation: iFees,
+        price_elevator_total: elevatorTotal,
+        total_price: total
     )
 
-        if quotes.building_type == "Residential"
-            quotes.update(apartments: rand(1..1000).floor)\
-            # total = quotes.price_elevator_total + quotes.installation
-            # quotes.update_attributes(total_price: total)
-
-        elsif quotes.building_type == "Commercial"
-            quotes.update(corporations: rand(1..20).floor)
-            quotes.update(elevators: rand(1..35).floor)
-            quotes.update(parking_spots: rand(1..140).floor)
-            # total = quotes.price_elevator_total + quotes.installation
-            # quotes.update_attributes(total_price: total)
-
-        elsif quotes.building_type == "Corporate"
-            quotes.update(corporations: rand(1..20).floor)
-            quotes.update(parking_spots: rand(1..140).floor)
-            quotes.update(maximum_occupancy: rand(1..1000).floor)
-            # total = quotes.price_elevator_total + quotes.installation
-            # quotes.update_attributes(total_price: total)
-        end
-
-        if quotes.building_type == "Hybrid"
-            quotes.update(business_hours: rand(1..24).floor)
-            # total = quotes.price_elevator_total + quotes.installation
-            # quotes.update_attributes(total_price: total)
-
-        end
-
-        #services_type logic similar to the js
+        #services_type logic similar to the js loop
         
 end
 
