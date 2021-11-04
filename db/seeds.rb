@@ -198,7 +198,17 @@ end
     )
 end
 
-241.times {
+123.times {
+
+
+    users = User.create!(
+        email: Faker::Internet.unique.email,
+        password: "password",
+        created_at: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'),
+        updated_at: Faker::Date.between(from: '2021-01-01', to: '2021-10-30'),
+        is_admin: TRUE
+    )
+
     customers = Customer.create!(
 
         company_name: [Faker::Name.last_name + " " + Faker::Company.suffix, Faker::Restaurant.name, Faker::University.name, Faker::Space.agency].sample,
@@ -206,23 +216,18 @@ end
         # company_address: address.full, #get randomly from address table
         company_contact_name: Faker::Name.name, #=> "Tyshawn Johns Sr."
         contact_phone: Faker::PhoneNumber.cell_phone, #=> "(186)285-7925"
-        contact_email: Faker::Internet.unique.email, #=> "eliza@mann.net"
+        contact_email: users[:email],
         company_description: Faker::Company.catch_phrase, #=> "Business-focused coherent parallelism"
         service_tech_name: Faker::Name.name, #=> "Tyshawn Johns Sr."
         service_tech_phone: Faker::PhoneNumber.cell_phone, #=> "(186)285-7925"
         service_tech_email: Faker::Internet.unique.email, #=> "eliza@mann.net"
         created_at: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'),
         updated_at: Faker::Date.between(from: '2021-01-01', to: '2021-10-30'),
-        address_id: Faker::Number.between(from: 1, to: 150)
+        address_id: Faker::Number.between(from: 1, to: 150),
+        user_id: users[:id]
     )
 
-    users = User.create!(
-        email: customers[:contact_email],
-        password: "password",
-        created_at: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'),
-        updated_at: Faker::Date.between(from: '2021-01-01', to: '2021-10-30'),
-        is_admin: TRUE
-    )
+    
 }
 
 
@@ -238,7 +243,7 @@ end
         created_at: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'),
         updated_at: Faker::Date.between(from: '2021-01-01', to: '2021-10-30'),
         address_id: Faker::Number.between(from: 1, to: 150),
-        customer_id: Faker::Number.between(from: 1, to: 179) 
+        customer_id: Faker::Number.between(from: 1, to: 123) 
     )
 end
 
