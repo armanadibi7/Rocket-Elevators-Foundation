@@ -348,10 +348,10 @@ end
         #business_hours: numHours,
         services_type: servicesType,
         amount_of_elevator: amntElevtr,
-        price_per_elevator: priceElevtr,
-        installation: iFees,
-        price_elevator_total: elevatorTotal,
-        total_price: total,
+        price_per_elevator: '$' + priceElevtr.to_s,
+        installation: '$' + iFees.to_s,
+        price_elevator_total: '$' + elevatorTotal.to_s,
+        total_price: '$' + total.to_s,
         created_at: Faker::Date.between(from: '2018-09-23', to: '2021-09-25'),
         updated_at: Faker::Date.between(from: '2018-09-23', to: '2021-09-25')
     )
@@ -408,10 +408,10 @@ end
         #business_hours: numHours,
         services_type: servicesType,
         amount_of_elevator: amntElevtr,
-        price_per_elevator: priceElevtr,
-        installation: iFees,
-        price_elevator_total: elevatorTotal,
-        total_price: total,
+        price_per_elevator: '$' + priceElevtr.to_s,
+        installation: '$' + iFees.to_s,
+        price_elevator_total: '$' + elevatorTotal.to_s,
+        total_price: '$' + total.to_s,
         created_at: Faker::Date.between(from: '2018-09-23', to: '2021-09-25'),
         updated_at: Faker::Date.between(from: '2018-09-23', to: '2021-09-25')
     )
@@ -468,10 +468,10 @@ end
         #business_hours: numHours,
         services_type: servicesType,
         amount_of_elevator: amntElevtr,
-        price_per_elevator: priceElevtr,
-        installation: iFees,
-        price_elevator_total: elevatorTotal,
-        total_price: total,
+        price_per_elevator: '$' + priceElevtr.to_s,
+        installation: '$' + iFees.to_s,
+        price_elevator_total: '$' + elevatorTotal.to_s,
+        total_price: '$' + total.to_s,
         created_at: Faker::Date.between(from: '2018-09-23', to: '2021-09-25'),
         updated_at: Faker::Date.between(from: '2018-09-23', to: '2021-09-25') 
     )
@@ -529,10 +529,10 @@ end
         business_hours: numHours,
         services_type: servicesType,
         amount_of_elevator: amntElevtr,
-        price_per_elevator: priceElevtr,
-        installation: iFees,
-        price_elevator_total: elevatorTotal,
-        total_price: total,
+        price_per_elevator: '$' + priceElevtr.to_s,
+        installation: '$' + iFees.to_s,
+        price_elevator_total: '$' + elevatorTotal.to_s,
+        total_price: '$' + total.to_s,
         created_at: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'),
         updated_at: Faker::Date.between(from: '2018-09-23', to: '2021-09-25') 
     )
