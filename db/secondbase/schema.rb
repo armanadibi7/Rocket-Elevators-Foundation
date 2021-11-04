@@ -10,13 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_03_234557) do
+ActiveRecord::Schema.define(version: 2021_11_04_165829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "fact_contact", force: :cascade do |t|
-    t.integer "contact_id"
+  create_table "fact_contacts", force: :cascade do |t|
     t.datetime "creation_date"
     t.string "company_name"
     t.string "email"
@@ -24,7 +23,6 @@ ActiveRecord::Schema.define(version: 2021_11_03_234557) do
   end
 
   create_table "fact_quotes", force: :cascade do |t|
-    t.integer "quote_id"
     t.datetime "creation_date"
     t.string "company_name"
     t.string "email"

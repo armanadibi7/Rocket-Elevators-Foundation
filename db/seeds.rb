@@ -163,7 +163,7 @@ employees.each do |employee|
     )
 end
 
-15.times do
+170.times do
     leads = Lead.create!(
         
         full_name: Faker::Name.name,
@@ -333,7 +333,7 @@ end
     end
 
     quotes = Quote.create!(
-        company_name: [Faker::Name.last_name + " " + Faker::Company.suffix, Faker::Restaurant.name].sample,
+        company_name: [Faker::Restaurant.name, Faker::University.name, Faker::Space.agency].sample,
         email: Faker::Internet.email(domain: 'business'),
         phone_number: Faker::PhoneNumber.cell_phone,
         building_type: buildingType,
@@ -393,7 +393,7 @@ end
     end
 
     quotes = Quote.create!(
-        company_name: [Faker::Name.last_name + " " + Faker::Company.suffix, Faker::Restaurant.name, Faker::University.name, Faker::Space.agency].sample,
+        company_name: [Faker::Restaurant.name, Faker::University.name, Faker::Space.agency].sample,
         email: Faker::Internet.email(domain: 'business'),
         phone_number: Faker::PhoneNumber.cell_phone,
         building_type: buildingType,
@@ -453,7 +453,7 @@ end
     end
 
     quotes = Quote.create!(
-        company_name: [Faker::Name.last_name + " " + Faker::Company.suffix, Faker::Restaurant.name, Faker::University.name, Faker::Space.agency].sample,
+        company_name: [Faker::Restaurant.name, Faker::University.name, Faker::Space.agency].sample,
         email: Faker::Internet.email(domain: 'business'),
         phone_number: Faker::PhoneNumber.cell_phone,
         building_type: buildingType,
@@ -514,7 +514,7 @@ end
     end
 
     quotes = Quote.create!(
-        company_name: [Faker::Name.last_name + " " + Faker::Company.suffix, Faker::Restaurant.name, Faker::University.name].sample,
+        company_name: [Faker::Restaurant.name, Faker::University.name, Faker::Space.agency].sample,
         email: Faker::Internet.email(domain: 'business'),
         phone_number: Faker::PhoneNumber.cell_phone,
         building_type: buildingType,
