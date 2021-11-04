@@ -344,6 +344,10 @@ end
     # Determine installation fees and elevator unit price for service type
     if servicesType == "Standard"
         standard = 0.11
+        puts amntElevtr.to_i
+        puts elevatorTotal.to_i
+        puts iFees.to_i
+        puts total.to_i
         elevatorTotal = standard * amntElevtr
         priceElevtr = 7567
         iFees = standard * elevatorTotal 
