@@ -1,11 +1,11 @@
 # README
 
 ## Project Description
-This is a ruby on rails project for Rocket Elevators. Our goal was to make an interactive website with a team member's original static site, and link it to a database; storing the employee login and quote data in separate tables. The site includes a back office section allowing employees to login and access the stored data.
+This is a ruby on rails project for Rocket Elevators. Different data models and databases are created to store the information of the company.
 
 #### Back Office Instructional Video
-This video gives a brief explanation of the process for submitting a quote form to the Back Office, as well as, describing the creation of a submission and how to access the Back Office to view said submission.<br />
-Link: <em>https://www.youtube.com/watch?v=aFcNlYyYRYk</em>
+This video gives a brief explanation of the process for submitting a contact form to the Home Page, connecting to a second database, export and import data from mySQL database to postgreSQL database <br />
+Link: <em>https://youtu.be/hoXt9AfBXJY</em>
 
 ### Back Office Admin Logins
 Nicolas Genest | CEO | nicolas.genest@codeboxx.biz | password: password
@@ -16,9 +16,11 @@ Martin Chantal | Director Assistant | martin.chantal@codeboxx.biz | password: pa
 
 Mathieu Houde | Captain | mathieu.houde@codeboxx.biz | password: password
 
-Abdul Akeeb | Developer | abdul.akeeb@codebozz.biz | password: password
+Abdul Akeeb | Developer | abdul.akeeb@codeboxx.biz | password: password
 
 Timothy Wever | Developer | timothy.wever@codeboxx.biz | password: password
+
+Krista Sheely | Developer | krista.sheely@codeboxx.biz | password: password 
 
 ### Instructions
 
@@ -40,6 +42,13 @@ You can now see the website at a web browser at localhost:3000
 
 ### Ruby / Rails version
 We used Ruby 2.6.6 and Ruby on Rails 5.2.6
+
+### Gem used:
+
+- Secondbase to connect to the second database: https://rubygems.org/gems/secondbase
+- Rails Admin for the admin panel
+- Devise for user authentication
+- PG for Postgres database
 
 ### Collaborators
 Team Lead: <strong>Do Minh An Nguyen</strong> (Domin)<br />
