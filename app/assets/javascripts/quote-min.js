@@ -59,8 +59,8 @@ function mainFunction(){
         $('#number-of-corporations').show();
         $('#maximum-occupancy').show();
         $('#business-hours').hide();
-    // Hybride Fields
-    }else if(value=="hybride"){
+    // Hybrid Fields
+    }else if(value=="hybrid"){
         $('#number-of-apartments').hide();
         $('#number-of-floors').show();
         $('#number-of-basement').show();
@@ -252,7 +252,7 @@ function actionListener(){
         
 
 // Corporate and Hybrid Calculation
-    }else if(value=="corporate" || value== "hybride"){
+    }else if(value=="corporate" || value== "hybrid"){
         let verify;
         if(value=="corporate"){
             
