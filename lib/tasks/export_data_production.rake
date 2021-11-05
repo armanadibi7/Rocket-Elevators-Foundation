@@ -44,8 +44,8 @@ namespace :export_data_production do
                     end
                 end
             end
-            connection.exec("INSERT INTO \"dim_customers\" (id, creation_date, company_name, admin_full_name, number_of_elevators, customer_city)
-            VALUES ('#{customer.id}', '#{customer.created_at}', '#{customer.company_name.gsub("'", "''")}', '#{customer.company_contact_name.gsub("'", "''")}', '#{elevatorCount}', '#{customer.address.city.gsub("'", "''")}')")
+            connection.exec("INSERT INTO \"dim_customers\" (id, creation_date, company_name, main_contact_full_name, main_contact_email, number_of_elevators, customer_city)
+            VALUES ('#{customer.id}', '#{customer.created_at}', '#{customer.company_name.gsub("'", "''")}', '#{customer.company_contact_name.gsub("'", "''")}', '#{customer.contact_email}', '#{elevatorCount}', '#{customer.address.city.gsub("'", "''")}')")
         end
 
 

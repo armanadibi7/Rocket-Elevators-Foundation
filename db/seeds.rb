@@ -122,7 +122,7 @@ employees = [
         first_name: 'Abdul',
         last_name: 'Akeeb',
         title: 'Developer',
-        email: 'abdul.akeeb@codebozz.biz'
+        email: 'abdul.akeeb@codeboxx.biz'
     },
     {
         first_name: 'Krista',
@@ -297,6 +297,7 @@ end
         status: ["Active", "Inactive"].sample,
         date_of_commissioning: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), 
         date_of_last_inspection: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), 
+        certificate_of_inspection: ['Yes', 'No'].sample, 
         notes: Faker::Quote.yoda,
         created_at: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'),
         updated_at: Faker::Date.between(from: '2021-01-01', to: '2021-10-30'),

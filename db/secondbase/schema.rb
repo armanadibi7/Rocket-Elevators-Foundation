@@ -18,7 +18,8 @@ ActiveRecord::Schema.define(version: 2021_11_04_210638) do
   create_table "dim_customers", force: :cascade do |t|
     t.date "creation_date"
     t.string "company_name"
-    t.string "admin_full_name"
+    t.string "main_contact_full_name"
+    t.string "main_contact_email"
     t.integer "number_of_elevators"
     t.string "customer_city"
   end
