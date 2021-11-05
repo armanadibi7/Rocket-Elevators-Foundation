@@ -172,7 +172,7 @@ end
         phone_number: Faker::PhoneNumber.cell_phone,
         project_name: Faker::Name.unique.name,
         project_description: Faker::Lorem.paragraph(sentence_count: 2),
-        department: ["HR", "Repair", "Maintenance", "Development"].sample, #Need to change this to accurate departments
+        department: ["Marketing", "Corporate", "Residential"].sample, 
         message: Faker::Lorem.paragraph(sentence_count: 2),
         attachment: Faker::LoremFlickr.image,
         created_at: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'),
@@ -212,15 +212,13 @@ end
     customers = Customer.create!(
 
         company_name: [Faker::Name.last_name + " " + Faker::Company.suffix, Faker::Restaurant.name, Faker::University.name, Faker::Space.agency].sample,
-        # Faker::Name.last_name + " " + Faker::Company.suffix, #=> "Hirthe-Ritchie"
-        # company_address: address.full, #get randomly from address table
-        company_contact_name: Faker::Name.name, #=> "Tyshawn Johns Sr."
-        contact_phone: Faker::PhoneNumber.cell_phone, #=> "(186)285-7925"
+        company_contact_name: Faker::Name.name, 
+        contact_phone: Faker::PhoneNumber.cell_phone, 
         contact_email: users[:email],
-        company_description: Faker::Company.catch_phrase, #=> "Business-focused coherent parallelism"
-        service_tech_name: Faker::Name.name, #=> "Tyshawn Johns Sr."
-        service_tech_phone: Faker::PhoneNumber.cell_phone, #=> "(186)285-7925"
-        service_tech_email: Faker::Internet.unique.email, #=> "eliza@mann.net"
+        company_description: Faker::Company.catch_phrase, 
+        service_tech_name: Faker::Name.name, 
+        service_tech_phone: Faker::PhoneNumber.cell_phone, 
+        service_tech_email: Faker::Internet.unique.email, 
         created_at: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'),
         updated_at: Faker::Date.between(from: '2021-01-01', to: '2021-10-30'),
         address_id: Faker::Number.between(from: 1, to: 150),
@@ -234,7 +232,6 @@ end
 179.times do
     buildings = Building.create!(
         admin_name: Faker::Name.name, 
-        # company_address: address.full, 
         admin_email: Faker::Internet.unique.email, 
         admin_phone_numer: Faker::PhoneNumber.cell_phone, 
         tech_full_name: Faker::Name.name, 
@@ -249,7 +246,7 @@ end
 
 186.times do
     building_details = BuildingDetail.create!(
-        information_key: Faker::Number.number(digits: 10), #=> 1968353479
+        information_key: Faker::Number.number(digits: 10), 
         value: Faker::Number.between(from: 1000000, to: 7999999),
         created_at: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'),
         updated_at: Faker::Date.between(from: '2021-01-01', to: '2021-10-30'), 
@@ -279,9 +276,8 @@ end
     columns = Column.create!(
         column_type: ['Commercial', 'Residential', 'Corporate',].sample, 
         number_of_floor: Faker::Number.decimal_part(digits: 2), 
-        status: 'Active', #Should be either active or inactive, based off of battery??? -jake
+        status: 'Active', 
         information: Faker::Lorem.sentence(word_count: rand(3..12).floor),
-        # information: Faker::Types.complex_rb_hash(number: 1), alternative info -jake
         notes: Faker::Quote.yoda,
         created_at: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'),
         updated_at: Faker::Date.between(from: '2021-01-01', to: '2021-10-30'),
@@ -346,12 +342,6 @@ end
         apartments: numApt,
         floors: numFlr,
         basements: numBas,
-        #elevators: numElevators,
-        #companies: numCompanies,
-        #parking_spots: numParking,
-        #corporations: numCorp,
-        #maximum_occupancy: numOcc,
-        #business_hours: numHours,
         services_type: servicesType,
         amount_of_elevator: amntElevtr,
         price_per_elevator: '$' + priceElevtr.to_s,
@@ -403,15 +393,11 @@ end
         email: Faker::Internet.email(domain: 'business'),
         phone_number: Faker::PhoneNumber.cell_phone,
         building_type: buildingType,
-        #apartments: numApt,
         floors: numFlr,
         basements: numBas,
         elevators: numElevators,
         companies: numCompanies,
         parking_spots: numParking,
-        #corporations: numCorp,
-        #maximum_occupancy: numOcc,
-        #business_hours: numHours,
         services_type: servicesType,
         amount_of_elevator: amntElevtr,
         price_per_elevator: '$' + priceElevtr.to_s,
@@ -468,15 +454,11 @@ end
         email: Faker::Internet.email(domain: 'business'),
         phone_number: Faker::PhoneNumber.cell_phone,
         building_type: buildingType,
-        #apartments: numApt,
         floors: numFlr,
         basements: numBas,
-        #elevators: numElevators,
-        # companies: numCompanies,
         parking_spots: numParking,
         corporations: numCorp,
         maximum_occupancy: numOcc,
-        #business_hours: numHours,
         services_type: servicesType,
         amount_of_elevator: amntElevtr,
         price_per_elevator: '$' + priceElevtr.to_s,
@@ -505,8 +487,6 @@ end
     columnsQty = (totalFloorsNum.to_f / 20).ceil()
     shaftsPerColumn = (shaftsQty.to_f / columnsQty.to_f).ceil()
     amntElevtr = columnsQty * shaftsPerColumn
-    
-    #numElevators = 1
 
     if servicesType == "Standard"
         standard = 0.11
@@ -535,13 +515,10 @@ end
         email: Faker::Internet.email(domain: 'business'),
         phone_number: Faker::PhoneNumber.cell_phone,
         building_type: buildingType,
-        #apartments: numApt,
         floors: numFlr,
         basements: numBas,
-        #elevators: numElevators,
         companies: numCompanies,
         parking_spots: numParking,
-        # corporations: numCorp,
         maximum_occupancy: numOcc,
         business_hours: numHours,
         services_type: servicesType,
