@@ -990,59 +990,54 @@ function closeForm() {
 							</div><!-- /Alert Mandatory -->
 
 
-							<form action="php/contact.php" method="post" enctype="multipart/form-data">
+							<%= form_with model: @lead , url: root_path do  |f|%>
 								<fieldset>
 									<input type="hidden" name="action" value="contact_send" />
 
 									<div class="row">
 											<div id="name" class="col-md-4">
 												<label for="contact:name">Full Name *</label>
-												<input required type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
+												<%= f.text_field :full_name , class: "form-control", :required => true %>
 											</div>
 											<div id="email" class="col-md-4">
 												<label for="contact:email">E-mail Address *</label>
-												<input required type="email" value="" class="form-control" name="contact[email][required]" id="contact:email">
+												<%= f.text_field :email , class: "form-control", :required => true %>
 											</div>
 											<div id="phone" class="col-md-4">
 												<label for="contact:phone">Phone</label>
-												<input type="text" value="" class="form-control" name="contact[phone]" id="contact:phone">
+												<%= f.text_field :phone_number , class: "form-control", :required => true %>
 											</div>
 											<div id="company_name" class="col-md-4">
 												<label for="contact:name">Business Name *</label>
-												<input required type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
+												<%= f.text_field :company_name , class: "form-control", :required => true %>
 											</div>
 											<div id="project_name" class="col-md-4">
 												<label for="contact:name">Project Name *</label>
-												<input required type="text" value="" class="form-control" name="contact[name][required]" id="contact:name">
+												<%= f.text_field :project_name , class: "form-control", :required => true %>
 											</div>
 									</div>
 									<div class="row">
 											<div id="project_description" class="col-md-8">
 												<label for="contact:subject">Project Description *</label>
-												<input required type="text" value="" class="form-control" name="contact[subject][required]" id="contact:subject">
+												<%= f.text_field :project_description , class: "form-control", :required => true %>
 											</div>
 											<div id="department" class="col-md-4">
 												<label for="contact_department">Department</label>
-												<select class="form-control pointer" name="contact[department]">
-													<option value="">--- Select ---</option>
-													<option value="Marketing">Marketing</option>
-													<option value="Corporate">Corporate Sales</option>
-													<option value="Residential">Residential Sales</option>
-												</select>
+												<%= f.select(:department, ['Select', 'Marketing', 'Corporate', 'Residential'], {}, { :class => 'form-control pointer' }) %>
 											</div>
 									</div>
 									<div class="row">
 											<div id="message" class="col-md-12">
 												<label for="contact:message">Message *</label>
-												<textarea required maxlength="10000" rows="8" class="form-control" name="contact[message]" id="contact:message"></textarea>
+												<%= f.text_area :message , class: "form-control", :required => true, rows: 8  %>
 											</div>
 									</div>
 									<div id="attachment" class="row">
 											<div class="col-md-12">
-												<label for="contact:attachment">File Attachment</label>
+												<%= f.label :upload, "Upload a File"%>
 
 												<!-- custom file upload -->
-												<input class="custom-file-upload" type="file" id="file" name="contact[attachment]" id="contact:attachment" data-btn-text="Select a File" />
+												<%= f.file_field :upload ,class: 'custom-file-upload','data-btn-text' => 'Select a file'%>
 												<small class="text-muted block">Max file size: 10Mb (zip/pdf/jpg/png)</small>
 
 											</div>
@@ -1055,7 +1050,7 @@ function closeForm() {
 										<button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> SEND MESSAGE</button>
 									</div>
 								</div>
-							</form>
+								<% end %>
 
 						</div>
 						<!-- /FORM -->

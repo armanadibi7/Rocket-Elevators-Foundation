@@ -8,7 +8,7 @@ class CreateLeads < ActiveRecord::Migration[5.2]
       t.string :project_name
       t.text :project_description
       t.string :department
-      t.text :message
+      t.text :message , :limit => 700000
       t.binary :attachment
 
       t.timestamps 

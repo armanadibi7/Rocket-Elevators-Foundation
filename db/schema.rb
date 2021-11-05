@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_03_164917) do
+ActiveRecord::Schema.define(version: 2021_11_04_203150) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "address_type"
@@ -128,8 +128,8 @@ ActiveRecord::Schema.define(version: 2021_11_03_164917) do
     t.string "project_name"
     t.text "project_description"
     t.string "department"
-    t.text "message"
-    t.binary "attachment"
+    t.text "message", limit: 16777215
+    t.binary "attachment", limit: 4294967295
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "created_on"
