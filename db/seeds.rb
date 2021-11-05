@@ -427,13 +427,18 @@ end
 140.times do 
     buildingType = "Corporate"
     servicesType = ["Standard", "Premium", "Excelium"].sample
-    numFlr = rand(2..100)
-    numBas = rand(2..10)
+    numFlr = rand(2..300)
+    numBas = rand(2..20)
     numCorp = rand(2..100)
     numParking = rand(2..100)
-    numOcc = rand(1..50)
-    amntElevtr = 1
-    numElevators = 1
+    numOcc = rand(1..100)
+
+    totalFloorsNum = numFlr + numBas
+    totalOccupantsNum = totalFloorsNum * numOcc
+    shaftsQty = (totalOccupantsNum.to_f / 1000).ceil()
+    columnsQty = (totalFloorsNum.to_f / 20).ceil()
+    shaftsPerColumn = (shaftsQty.to_f / columnsQty.to_f).ceil()
+    amntElevtr = columnsQty * shaftsPerColumn
 
     if servicesType == "Standard"
         standard = 0.11
@@ -465,7 +470,7 @@ end
         #apartments: numApt,
         floors: numFlr,
         basements: numBas,
-        elevators: numElevators,
+        #elevators: numElevators,
         # companies: numCompanies,
         parking_spots: numParking,
         corporations: numCorp,
@@ -487,14 +492,20 @@ end
 60.times do 
     buildingType = "Hybrid"
     servicesType = ["Standard", "Premium", "Excelium"].sample
-    numFlr = rand(2..100)
-    numBas = rand(2..10)
+    numFlr = rand(2..300)
+    numBas = rand(2..20)
     numCompanies = rand(2..100)
     numParking = rand(2..100)
-    numOcc = rand(1..50)
+    numOcc = rand(1..10)
     numHours = rand(1..24)
-    amntElevtr = 1
-    numElevators = 1
+    totalFloorsNum = numFlr + numBas
+    totalOccupantsNum = totalFloorsNum * numOcc
+    shaftsQty = (totalOccupantsNum.to_f / 1000).ceil()
+    columnsQty = (totalFloorsNum.to_f / 20).ceil()
+    shaftsPerColumn = (shaftsQty.to_f / columnsQty.to_f).ceil()
+    amntElevtr = columnsQty * shaftsPerColumn
+    
+    #numElevators = 1
 
     if servicesType == "Standard"
         standard = 0.11
@@ -526,7 +537,7 @@ end
         #apartments: numApt,
         floors: numFlr,
         basements: numBas,
-        elevators: numElevators,
+        #elevators: numElevators,
         companies: numCompanies,
         parking_spots: numParking,
         # corporations: numCorp,
