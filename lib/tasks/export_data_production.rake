@@ -1,11 +1,11 @@
 require 'pg'
 
-namespace :export_data do
+namespace :export_data_production do
     desc "export data from mysql and import it into pgsql"
     task :mysql => :environment do
 
         puts "Exporting data from mySQL server..."
-        connection = PG::Connection.open(host: "localhost", port: 5432, dbname: "myapp_development", user: "root", password: "password")
+        connection = PG::Connection.open(host: "codeboxx-postgresql.cq6zrczewpu2.us-east-1.rds.amazonaws.com", port: 5432, dbname: "dominhannguyen", user: "codeboxx", password: "Codeboxx1!")
 
         connection.exec("TRUNCATE fact_contacts RESTART IDENTITY")
         Lead.all.each do |lead|
