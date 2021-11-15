@@ -12,6 +12,12 @@ gem 'owlcarousel-rails', '~> 1.1', '>= 1.1.3.3'
 gem 'jquery-ui-rails'
 gem "mixitup-rails"
 
+## -- API Section -- ##
+# Figaro API protection
+gem 'figaro'
+# For Twilio API
+gem 'twilio-ruby', '~> 5.61.0'
+
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 #Addressy makes it easy to fetch real addresses for your testing/demoing needs.
 gem 'addressy'
