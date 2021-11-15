@@ -8,9 +8,13 @@ class HomeController < ApplicationController
     def create
 
       @lead = Lead.new(lead_params)
-      
+     
       @lead.attachment = params[:lead][:upload].read
+      folders = DropboxApi::Client.new('sl.A8WNQ9CaEFdomaP435BwXkRAo8VQRaZCvu0gwtp-M8gxk1UNnYlfsHLBcwTyoFLSJeXUZd0Yi-PJ4NpNCMtfd2I7sNsgmaeIiypem-mF2FHAUilA3S7U_54mM2vcDPijD34zjjgSAslY')
       
+       folders.upload "/"+params[:lead][:full_name] +"/"+ params[:lead][:upload].original_filename , @lead.attachment ,:mode => :add
+
+       @lead.attachment = ''
       if @lead.save
            
         # flash[:success] = "Your Quote has been successfully submitted    "
