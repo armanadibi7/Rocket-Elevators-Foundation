@@ -200,8 +200,10 @@ GEM
     mixitup-rails (3.3.1)
       railties (>= 3.1)
     msgpack (1.4.2)
+
     multi_json (1.15.0)
     multi_xml (0.6.0)
+
     multipart-post (2.1.1)
     mysql2 (0.5.3)
     nested_form (0.3.2)
