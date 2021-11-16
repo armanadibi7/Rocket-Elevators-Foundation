@@ -12,10 +12,16 @@ gem 'owlcarousel-rails', '~> 1.1', '>= 1.1.3.3'
 gem 'jquery-ui-rails'
 gem "mixitup-rails"
 
+## -- API Section -- ##
+# Figaro API protection
+gem 'figaro'
+# For Twilio API
+gem 'twilio-ruby', '~> 5.61.0'
+
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 #Addressy makes it easy to fetch real addresses for your testing/demoing needs.
 gem 'addressy'
-
+gem 'dropbox_api'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.6'
@@ -46,7 +52,7 @@ gem 'secondbase', '~> 2.1'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 gem 'pg', '~> 1.2', '>= 1.2.3'
-gem 'dropbox_api'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
