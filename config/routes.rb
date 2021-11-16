@@ -9,6 +9,7 @@ post "/" , to: "home#create"
 get "residential" => "home#residential"
 get "commercial" => "home#commercial"
 get "quote" => "home#quote"
+get "map" => "home#map"
 post "getData" => "quote#getData"
 
  
