@@ -24,6 +24,7 @@ gem 'addressy'
 # gem to convert addresses into lat/long
 gem 'geocoder'
 
+gem 'dropbox_api'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.6'

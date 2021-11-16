@@ -1,7 +1,7 @@
 class Elevator < ApplicationRecord
     belongs_to :column
     before_save do
-        if ((status_was != nil) and (status == "Intervention"))
+        if ((status_was != nil) and (status_was != "Intervention") and (status == "Intervention"))
             sms_tech()
         end
     end    

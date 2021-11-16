@@ -12,6 +12,5 @@ get "quote" => "home#quote"
 get "/map" => "map#map"
 post "getData" => "quote#getData"
 
- 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
