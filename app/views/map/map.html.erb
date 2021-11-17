@@ -7,6 +7,15 @@ src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['mapsAPI_id']%>&callbac
 </script>
 
 <script>
+	// Arrays of information ahead of time for Stats window
+		// location = [];
+		// floors = [];
+		// client = [];
+		// batteries = [];
+		// columns = [];
+		// elevators = [];
+		// tContact = [];
+
 
    function initMap(){
 
@@ -19,6 +28,9 @@ src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['mapsAPI_id']%>&callbac
 	// new map
   	map = new google.maps.Map(document.getElementById('map'),options)
 
+	//info window
+	var infoWindow = new google.maps.infoWindow();
+
 	//marker
 	function addMarker(property){
 		const marker = new google.maps.Marker({
@@ -27,9 +39,13 @@ src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['mapsAPI_id']%>&callbac
 		});
 
 	}
-   addMarker({location:{lat: 40.7128, lng: -74.0060}})
-   addMarker({location:{lat: 27.9506, lng: -82.4572}})
-   addMarker({location:{lat: 39.0997, lng: -94.5786}})
+
+
+
+	//test markers
+	addMarker({location:{lat: 40.7128, lng: -74.0060}})
+	addMarker({location:{lat: 27.9506, lng: -82.4572}})
+	addMarker({location:{lat: 39.0997, lng: -94.5786}})
    }
 </script>
 <!-- /Google Maps API Testing -->
