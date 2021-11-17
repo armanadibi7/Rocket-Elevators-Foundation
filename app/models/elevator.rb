@@ -44,7 +44,7 @@ class Elevator < ApplicationRecord
         puts ENV['slack_api']
         if notify
             notifier = Slack::Notifier.new ENV['slack_api']
-            notifier.ping "The Elevator with ID: '#{self.id}' in building ID: '#{self.column.battery.building.id}' status has changed from '#{self.status_was}' to '#{self.status}'"
+            notifier.ping "The Elevator with ID: '#{self.id}' with Serial Number: '#{self.serial_number}' status has changed from '#{self.status_was}' to '#{self.status}'"
         end
         yield
     end
