@@ -12,6 +12,9 @@ gem 'owlcarousel-rails', '~> 1.1', '>= 1.1.3.3'
 gem 'jquery-ui-rails'
 gem "mixitup-rails"
 
+gem 'sendgrid-ruby'
+gem 'sendgrid-actionmailer'
+
 ## -- API Section -- ##
 # Figaro API protection
 gem 'figaro'
@@ -21,6 +24,9 @@ gem 'twilio-ruby', '~> 5.61.0'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 #Addressy makes it easy to fetch real addresses for your testing/demoing needs.
 gem 'addressy'
+# gem to convert addresses into lat/long
+gem 'geocoder'
+
 gem 'dropbox_api'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
