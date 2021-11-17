@@ -12,31 +12,7 @@ class HomeController < ApplicationController
     @lead.attachment = params[:lead][:upload].read
     @lead.filename = params[:lead][:upload].original_filename
     
-    if User.exists?(:email => params[:lead][:email])
-          Lead.all.each do |found_lead|
-              if found_lead.email == params[:lead][:email] 
-            
-                name = found_lead.full_name
-                filename = found_lead.filename
-
-                    if filename != ''
-
-                    folders = DropboxApi::Client.new(ENV['dropbox_token'])
-                    
-                    previous_attachement = found_lead.attachment
-                    folders.upload "/" + name  +"/"+ filename, previous_attachement ,:mode => :add
-                    found_lead.attachment = ''
-                    found_lead.filename =''
-                    found_lead.save
-                    end
-              end
-          end
-        folders = DropboxApi::Client.new(ENV['dropbox_token'])
-        folders.upload "/" + params[:lead][:full_name]+"/"+ params[:lead][:upload].original_filename, @lead.attachment,:mode => :add
-        @lead.attachment = ''
-        @lead.filename = ''
-    end
-  
+    
     if @lead.save
          
       # flash[:success] = "Your Quote has been successfully submitted    "
