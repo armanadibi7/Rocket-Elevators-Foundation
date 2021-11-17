@@ -316,6 +316,7 @@ GEM
       sendgrid-ruby (~> 6.4)
     sendgrid-ruby (6.6.0)
       ruby_http_client (~> 3.4)
+    slack-notifier (2.4.0)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -400,6 +401,7 @@ DEPENDENCIES
   selenium-webdriver
   sendgrid-actionmailer
   sendgrid-ruby
+  slack-notifier
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

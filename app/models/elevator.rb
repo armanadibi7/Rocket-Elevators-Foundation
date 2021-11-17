@@ -4,7 +4,8 @@ class Elevator < ApplicationRecord
         if ((status_was != nil) and (status_was != "Intervention") and (status == "Intervention"))
             sms_tech()
         end
-    end    
+    end
+    
 
     # TWILIO
     def sms_tech
@@ -29,6 +30,23 @@ class Elevator < ApplicationRecord
          
         puts message.sid
         
+    end
+
+    around_update :send_to_slack
+
+    private
+
+    def send_to_slack
+
+        require 'slack-notifier'
+
+        notify = self.status_changed?
+        puts ENV['slack_api']
+        if notify
+            notifier = Slack::Notifier.new ENV['slack_api']
+            notifier.ping "The Elevator with ID: '#{self.id}' with Serial Number: '#{self.serial_number}' status has changed from '#{self.status_was}' to '#{self.status}'"
+        end
+        yield
     end
 
 end
