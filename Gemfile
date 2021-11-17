@@ -12,6 +12,9 @@ gem 'owlcarousel-rails', '~> 1.1', '>= 1.1.3.3'
 gem 'jquery-ui-rails'
 gem "mixitup-rails"
 
+gem 'sendgrid-ruby'
+gem 'sendgrid-actionmailer'
+
 ## -- API Section -- ##
 # Figaro API protection
 gem 'figaro'

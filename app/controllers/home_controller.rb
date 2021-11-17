@@ -8,13 +8,18 @@ class HomeController < ApplicationController
     def create
 
       @lead = Lead.new(lead_params)
+
+      if params[:lead][:upload]
+        @lead.attachment = params[:lead][:upload].read
+      end
       
-      @lead.attachment = params[:lead][:upload].read
+      
       
       if @lead.save
            
         # flash[:success] = "Your Quote has been successfully submitted    "
-        
+
+        ThankYouMailer.send_thank_you_email(@lead).deliver       
         redirect_to root_path, flash: {success: "Your Message has been successfully submitted"}
       end
       
