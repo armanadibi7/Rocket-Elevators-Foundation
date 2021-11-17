@@ -14,7 +14,7 @@ gem "mixitup-rails"
 
 gem 'sendgrid-ruby'
 gem 'sendgrid-actionmailer'
-
+gem 'slack-notifier'
 ## -- API Section -- ##
 # Figaro API protection
 gem 'figaro'
