@@ -1,23 +1,35 @@
 <!-- Google Maps API Testing -->
 <div id="map" style="width:100%; height:700px;"></div>
 
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['mapsAPI_id']%>&callback=initMap">
-// ENV['mapsAPI_id']
-</script>
+<script defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['mapsAPI_id']%>&callback=initMap"></script>
 
 <script>
 
+	//fetching all buildings into an array???
+	// @yourVariable = Building.all
+
+	// Arrays of information for Stats window
+		// location = [];
+		// floors = [];
+		// client = [];
+		// batteries = [];
+		// columns = [];
+		// elevators = [];
+		// tContact = [];
+
+		//Building.all do
+			//push correct info into above arrays
+
    function initMap(){
-
-	// options
-	var options = {
-		center: {lat:45, lng: -99},
-		zoom: 5
-	}
-
+	   
 	// new map
-  	map = new google.maps.Map(document.getElementById('map'),options)
+  	map = new google.maps.Map(document.getElementById('map'), {
+		  center: {lat:45, lng: -99},
+		zoom: 5
+	  });
+
+	//info window
+	 var infoWindow = new google.maps.infoWindow();
 
 	//marker
 	function addMarker(property){
@@ -27,9 +39,11 @@ src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['mapsAPI_id']%>&callbac
 		});
 
 	}
-   addMarker({location:{lat: 40.7128, lng: -74.0060}})
-   addMarker({location:{lat: 27.9506, lng: -82.4572}})
-   addMarker({location:{lat: 39.0997, lng: -94.5786}})
+
+	//test markers WILL BE DELETED LATER
+	addMarker({location:{lat: 40.7128, lng: -74.0060}})
+	addMarker({location:{lat: 27.9506, lng: -82.4572}})
+	addMarker({location:{lat: 39.0997, lng: -94.5786}})
    }
 </script>
 <!-- /Google Maps API Testing -->
