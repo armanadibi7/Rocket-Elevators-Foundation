@@ -58,7 +58,7 @@ gem 'secondbase', '~> 2.1'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 gem 'pg', '~> 1.2', '>= 1.2.3'
-
+gem "zendesk_api"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

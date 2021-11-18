@@ -1,4 +1,6 @@
+
 class HomeController < ApplicationController
+  
   def index
 
       @lead = Lead.new
@@ -17,6 +19,8 @@ class HomeController < ApplicationController
     
     
     if @lead.save
+  
+      #create_lead_ticket
       ThankYouMailer.send_thank_you_email(@lead).deliver   
       # flash[:success] = "Your Quote has been successfully submitted    "
 
@@ -25,6 +29,7 @@ class HomeController < ApplicationController
     end
     
   end
+
 
   private
   # Use callbacks to share common setup or constraints between actions.
