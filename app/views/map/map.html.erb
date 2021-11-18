@@ -1,49 +1,61 @@
 <!-- Google Maps API Testing -->
-<div id="map" style="width:100%; height:700px;"></div>
-
-<script defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['mapsAPI_id']%>&callback=initMap"></script>
-
+<%# <div id="map" style="width:100%; height:700px;"></div> %>
+<style type="text/css">
+#main { padding-right: 15px; }
+.infoWindow { width: 200px; }
+</style>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['mapsAPI_id']%>"></script>
 <script>
 
-	//fetching all buildings into an array???
-	// @yourVariable = Building.all
+	var map;
+	var center = new google.maps.LatLng(45, -99);
+	function init() {
+		var options = {
+			center: center,
+			zoom: 5,
+		}
+		map = new google.maps.Map(document.getElementById("map_canvas"), options);
+		infoWindow = new google.maps.InfoWindow({ content: statsInfo});
 
-	// Arrays of information for Stats window
-		// location = [];
-		// floors = [];
-		// client = [];
-		// batteries = [];
-		// columns = [];
-		// elevators = [];
-		// tContact = [];
+	<% Building.all.each do |building| %>
 
-		//Building.all do
-			//push correct info into above arrays
+	//creates 'elevators' and 'floors' vars for stats window below
+	<% b_id = Battery.where(building_id: building.id).ids 
+				col = Column.where(battery_id: b_id)
+				col_id = Column.where(battery_id: b_id).ids
+				elevators = Elevator.where(column_id: col_id).count
+	floor = col.maximum(:number_of_floor) %>
 
-   function initMap(){
-	   
-	// new map
-  	map = new google.maps.Map(document.getElementById('map'), {
-		  center: {lat:45, lng: -99},
-		zoom: 5
-	  });
+	//stats window info
+		var statsInfo = '<h1>' + "<%= building.customer.company_contact_name %>" + '</h2>' + '<br>' + '<p>' + 
+						"<h3>location: </h3> " + "<%= building.address.latitude %>" + ' , ' + "<%= building.address.longitude %>" + '<br />' +
+						"<h3>floors: </h3> " + "<%= floor %>" + '<br />' +
+						"<h3>batteries: </h3> " + "<%= building.batteries.count %>" + '<br />' +
+						"<h3>columns: </h3> " + "<%= building.batteries.columns.count %>" + '<br />' +
+						"<h3>elevators: </h3> " + "<%= elevators %>" + '<br />' +
+						"<h3>technical contact: </h3> " + "<%= building.tech_full_name %>" + '<br />';
 
-	//info window
-	 var infoWindow = new google.maps.infoWindow();
-
-	//marker
-	function addMarker(property){
-		const marker = new google.maps.Marker({
-			position:property.location,
-			map:map
+	//markers
+		var markers = new google.maps.Marker({
+			map:map,
+			position: {lat: parseFloat("<%= building.address.latitude %>"), lng: parseFloat("<%= building.address.longitude %>")},
+			info: statsInfo
 		});
 
+	//marker click event
+	google.maps.event.addListener( markers, 'click', function() {
+		infoWindow.setContent( this.info ); infoWindow.open( map, this);
+	});
+
+	markers.setMap(map);
+
+	<% end %>
 	}
 
-	//test markers WILL BE DELETED LATER
-	addMarker({location:{lat: 40.7128, lng: -74.0060}})
-	addMarker({location:{lat: 27.9506, lng: -82.4572}})
-	addMarker({location:{lat: 39.0997, lng: -94.5786}})
-   }
 </script>
+<body onload="init();">
+<section id="main">
+<div id="map_canvas" style="width: 70%; height: 500px;"></div>
+</section>
+</body>
 <!-- /Google Maps API Testing -->
