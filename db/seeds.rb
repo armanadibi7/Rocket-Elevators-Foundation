@@ -180,7 +180,7 @@ end
     )
 end
 
-150.times do
+100.times do
     address = Addressy::US.fetch(150).first
     addresses = Address.create!(
         
@@ -221,7 +221,7 @@ end
         service_tech_email: Faker::Internet.unique.email, 
         created_at: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'),
         updated_at: Faker::Date.between(from: '2021-01-01', to: '2021-10-30'),
-        address_id: Faker::Number.between(from: 1, to: 150),
+        address_id: Faker::Number.between(from: 1, to: 100),
         user_id: users[:id]
     )
 
@@ -239,7 +239,7 @@ end
         tech_phone_number: Faker::PhoneNumber.cell_phone,
         created_at: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'),
         updated_at: Faker::Date.between(from: '2021-01-01', to: '2021-10-30'),
-        address_id: Faker::Number.between(from: 1, to: 150),
+        address_id: Faker::Number.between(from: 1, to: 100),
         customer_id: Faker::Number.between(from: 1, to: 123) 
     )
 end
