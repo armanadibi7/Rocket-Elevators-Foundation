@@ -31,3 +31,13 @@
 
 en:
   hello: "Hello world"
+
+en:
+  admin:
+    actions:
+      map:
+        title: "Google Map"
+        menu: "Google Map"
+        breadcrumb: "Google Map"
+        link: "Google Map"
+        done: "Created"

@@ -37,7 +37,7 @@ class QuoteController < ApplicationController
            
 
         if quote.save
-           
+            create_quote_ticket
             # flash[:success] = "Your Quote has been successfully submitted    "
             
             redirect_to root_path, flash: {success: "Your quote has been successfully submitted"}
@@ -47,6 +47,31 @@ class QuoteController < ApplicationController
          
           end
      
+    end
+
+
+    def create_quote_ticket
+        client = ZendeskAPI::Client.new do |config|
+            config.url = ENV['ZENDESK_URL']
+            config.username = ENV['ZENDESK_USERNAME']
+            config.token = ENV['ZENDESK_TOKEN']
+        end
+        ZendeskAPI::Ticket.create!(client, 
+            :subject => "The company #{params['company_name']}", 
+            :comment => { 
+                :value => "The contact company #{params['company_name']} 
+                    can be reached at email #{params['email']} and at phone number #{params['phone_number']}. 
+                    Building type selected is #{params["buildings"]} with the service type #{params["radioSelect"]}. 
+                    The amount of required elevator is #{params["amntElevator"]} and total price is #{params["total_price"]}.\n"
+                   
+            }, 
+            :requester => { 
+                "name": params['email'], 
+                "email": params['email'],
+            },
+            :priority => "normal",
+            :type => "task",
+            )
     end
 
     

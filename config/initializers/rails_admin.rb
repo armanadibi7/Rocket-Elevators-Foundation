@@ -1,3 +1,5 @@
+require Rails.root.join('lib', 'map.rb')
+
 RailsAdmin.config do |config|
   config.authorize_with do
     redirect_to main_app.root_path unless user_signed_in?
@@ -29,13 +31,17 @@ RailsAdmin.config do |config|
     dashboard                     # mandatory
     index                         # mandatory
     new
-    export
+    export do
+      except ['Customer']
+    end
     bulk_delete
     show
     edit
     delete
     show_in_app
-
+    map do
+      only ['Customer']
+    end
     ## With an audit adapter, you can add:
     # history_index
     # history_show
