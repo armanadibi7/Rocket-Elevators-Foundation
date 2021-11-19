@@ -11,7 +11,7 @@ gem 'font-awesome-sass', '~> 5.12.0'
 gem 'owlcarousel-rails', '~> 1.1', '>= 1.1.3.3'
 gem 'jquery-ui-rails'
 gem "mixitup-rails"
-
+gem 'dropbox_api'
 gem 'sendgrid-ruby'
 gem 'sendgrid-actionmailer'
 gem 'slack-notifier'
@@ -26,8 +26,6 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 gem 'addressy'
 # gem to convert addresses into lat/long
 gem 'geocoder'
-
-gem 'dropbox_api'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.6'
