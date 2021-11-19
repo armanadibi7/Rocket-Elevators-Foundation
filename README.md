@@ -26,7 +26,7 @@ Krista Sheely | Developer | krista.sheely@codeboxx.biz | password: password
 
 First, you need a copy a database.yml file, which will specify your database information. Add this file to the config folder. A copy of the database.yml file is here https://github.com/dominhannguyen/database-yml
 
-Next, include a copy of application.yml file, which specifies the API key.
+Next, include a copy of application.yml file, this file should be placed inside the config folder, which specifies the API key.
 
 ```
 
@@ -64,7 +64,7 @@ You can now see the website at a web browser at localhost:3000
 
 ### API implemented:
 
-- Google Maps: We geocoder gem to convert the addresses to latitude and longitude
+- Google Maps: We used geocoder gem to convert the addresses to latitude and longitude
 - Twilio: We used gem ``` 'gem 'twilio-ruby', '~> 5.61.0' ``` to integrate twilio to our apps
 - Dropbox: We used gem ``` gem 'dropbox_api' ``` to integrate slack to our apps
 - SendGrid: We used gem ``` gem 'sendgrid-ruby' ``` and ``` gem 'sendgrid-actionmailer' ```  to integrate Sendgrid to our apps
