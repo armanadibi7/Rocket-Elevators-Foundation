@@ -990,6 +990,7 @@ function closeForm() {
 
 
 							<%= form_with model: @lead , url: root_path do  |f|%>
+								<%= invisible_captcha %> <!-- For captcha gem (bonus) -->
 								<fieldset>
 									<input type="hidden" name="action" value="contact_send" />
 
