@@ -78,5 +78,5 @@ We used Ruby 2.6.6 and Ruby on Rails 5.2.6
 
 
 ### Collaborators
-Team Lead: <strong>Matthew Dandurand</strong> (Domin)<br />
+Team Lead: <strong>Matthew Dandurand</strong> <br />
 Team Members: <strong>Jacob Gomez</strong>, <strong>Do Minh An Nguyen</strong>, <strong>Arman Adibi</strong>, and <strong>Tyler Calderon</strong>
