@@ -1,6 +1,7 @@
 
 class HomeController < ApplicationController
-  
+  invisible_captcha only: [:create]
+
   def index
 
       @lead = Lead.new

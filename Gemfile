@@ -27,6 +27,12 @@ gem 'addressy'
 # gem to convert addresses into lat/long
 gem 'geocoder'
 
+gem 'dropbox_api'
+
+# Bonus
+gem 'invisible_captcha'
+## ----------------- ##
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.6'
 # Use mysql2 as the database for Active Record
