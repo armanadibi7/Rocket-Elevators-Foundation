@@ -66,11 +66,11 @@ You can now see the website at a web browser at localhost:3000
 
 - Google Maps: We used ``` gem 'geocoder' ``` m to convert the addresses to latitude and longitude
 - Twilio: We used gem ``` 'gem 'twilio-ruby', '~> 5.61.0' ``` to integrate twilio to our apps
+- Slack: We used gem ``` gem 'slack-notifier' ``` to integrate slack to our apps
 - Dropbox: We used gem ``` gem 'dropbox_api' ``` to integrate slack to our apps
 - SendGrid: We used gem ``` gem 'sendgrid-ruby' ``` and ``` gem 'sendgrid-actionmailer' ```  to integrate Sendgrid to our apps
 - Amazon Polly: We used gem ``` gem 'aws-sdk-polly' ``` to integrate Amazon Polly to our apps
-- Zendesk: We used gem ``` gem 'slack-notifier' ``` to integrate slack to our apps
-
+- Zendesk: We used gem ``` gem "zendesk_api" ``` to integrate slack to our apps
 
 
 ### Ruby / Rails version
