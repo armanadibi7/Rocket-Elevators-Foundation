@@ -64,7 +64,7 @@ You can now see the website at a web browser at localhost:3000
 
 ### API implemented:
 
-- Google Maps: We used geocoder gem to convert the addresses to latitude and longitude
+- Google Maps: We used ``` gem 'geocoder' ``` m to convert the addresses to latitude and longitude
 - Twilio: We used gem ``` 'gem 'twilio-ruby', '~> 5.61.0' ``` to integrate twilio to our apps
 - Dropbox: We used gem ``` gem 'dropbox_api' ``` to integrate slack to our apps
 - SendGrid: We used gem ``` gem 'sendgrid-ruby' ``` and ``` gem 'sendgrid-actionmailer' ```  to integrate Sendgrid to our apps
