@@ -20,7 +20,7 @@ gem 'slack-notifier'
 gem 'figaro'
 # For Twilio API
 gem 'twilio-ruby', '~> 5.61.0'
-
+gem 'aws-sdk-polly'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 #Addressy makes it easy to fetch real addresses for your testing/demoing needs.
 gem 'addressy'
@@ -58,7 +58,7 @@ gem 'secondbase', '~> 2.1'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 gem 'pg', '~> 1.2', '>= 1.2.3'
-
+gem "zendesk_api"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
