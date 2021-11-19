@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Users::SessionsController < DeviseController
+class Devise::SessionsController < DeviseController
   prepend_before_action :require_no_authentication, only: [:new, :create]
   prepend_before_action :allow_params_authentication!, only: :create
   prepend_before_action :verify_signed_out_user, only: :destroy
@@ -12,11 +12,13 @@ class Users::SessionsController < DeviseController
     clean_up_passwords(resource)
     yield resource if block_given?
     respond_with(resource, serialize_options(resource))
+    
   
   end
 
   # POST /resource/sign_in
   def create
+   
     self.resource = warden.authenticate!(auth_options)
     set_flash_message!(:notice, :signed_in)
     sign_in(resource_name, resource)

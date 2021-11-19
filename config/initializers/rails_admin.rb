@@ -1,4 +1,6 @@
 require Rails.root.join('lib', 'map.rb')
+require Rails.root.join('lib', 'dropbox.rb')
+
 
 RailsAdmin.config do |config|
   config.authorize_with do
@@ -6,12 +8,22 @@ RailsAdmin.config do |config|
   end
   ### Popular gems integration
 
-  # # == Devise ==
+  # == Devise ==
   # config.authenticate_with do
   #   warden.authenticate! scope: :user
   # end
   # config.current_user_method(&:current_user)
-
+  config.model Customer do
+    edit do
+      field :company_name do
+        required true
+      end
+      field :company_contact_name do
+        required true
+      end
+      include_all_fields 
+    end
+  end
   ## == CancanCan ==
   # config.authorize_with :cancancan
 
@@ -35,11 +47,14 @@ RailsAdmin.config do |config|
       except ['Customer']
     end
     bulk_delete
-    show
+    show 
     edit
     delete
     show_in_app
     map do
+      only ['Customer']
+    end
+    dropbox do
       only ['Customer']
     end
     ## With an audit adapter, you can add:
@@ -47,3 +62,4 @@ RailsAdmin.config do |config|
     # history_show
   end
 end
+
