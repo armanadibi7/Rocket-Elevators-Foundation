@@ -19,7 +19,6 @@
 
 	<% Building.all.each do |building| %>
 
-	//creates 'elevators' and 'floors' vars for stats window below
 	<% b_id = Battery.where(building_id: building.id).ids 
 				col = Column.where(battery_id: b_id)
 				col_id = Column.where(battery_id: b_id).ids
@@ -33,8 +32,7 @@
 						"<h3>batteries: </h3> " + "<%= building.batteries.count %>" + '<br />' +
 						"<h3>columns: </h3> " + "<%= building.batteries.columns.count %>" + '<br />' +
 						"<h3>elevators: </h3> " + "<%= elevators %>" + '<br />' +
-						"<h3>technical contact: </h3> " + "<%= building.tech_full_name %>" + '<br />' +
-						"<h3 weather: </h3 >" + '<br />'
+						"<h3>technical contact: </h3> " + "<%= building.tech_full_name %>" + '<br />';	
 
 
 	//markers
@@ -63,3 +61,7 @@
 </body>
 <!-- /Google Maps API Testing -->
 	
+<%# "<h3> weather: </h3 >" + "<%= JSON.parse(response.body)["current"]["condition"]["text"] " + '<br />' +  %>
+<%# "<h3> Temperature </h3>" + "<%= JSON.parse(response.body)["current"]["temp_c"] " + '<br />'; %>
+<%# <% response = HTTParty.get('http://api.weatherapi.com/v1/current.json?key=' + ENV["weatherAPI_id:"] + '&q=' + building.address.city) %>
+
