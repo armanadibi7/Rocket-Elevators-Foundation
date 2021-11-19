@@ -11,7 +11,7 @@ gem 'font-awesome-sass', '~> 5.12.0'
 gem 'owlcarousel-rails', '~> 1.1', '>= 1.1.3.3'
 gem 'jquery-ui-rails'
 gem "mixitup-rails"
-
+gem 'dropbox_api'
 gem 'sendgrid-ruby'
 gem 'sendgrid-actionmailer'
 gem 'slack-notifier'

@@ -41,3 +41,15 @@ en:
         breadcrumb: "Google Map"
         link: "Google Map"
         done: "Created"
+      dropbox:
+        title: "DropBox"
+        menu: "DropBox"
+        breadcrumb: "DropBox"
+        link: "DropBox"
+        done: "Created"
+      show:
+        title: "Show"
+        menu: "Show"
+        breadcrumb: "Show"
+        link: "Show"
+        done: "Created"
