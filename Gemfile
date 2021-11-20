@@ -15,6 +15,7 @@ gem 'dropbox_api'
 gem 'sendgrid-ruby'
 gem 'sendgrid-actionmailer'
 gem 'slack-notifier'
+gem 'starwars'
 ## -- API Section -- ##
 # Figaro API protection
 gem 'figaro'
