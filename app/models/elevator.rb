@@ -20,7 +20,7 @@ class Elevator < ApplicationRecord
         @client = Twilio::REST::Client.new(account_sid, auth_token)
 
         from = '+17179958791' # Your Twilio number
-        to = '+15142588609' # Your mobile phone number
+        to = '+15819831152' # Your mobile phone number
          
         message = @client.messages.create( 
                                      body: "The Elevator with ID: '#{self.id}' in building ID: '#{self.column.battery.building.id}' status has changed from '#{self.status_was}' to '#{self.status}'",  
