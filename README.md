@@ -5,7 +5,7 @@ This week our task is to implement various APIs to add more features to our Rock
 
 #### Instructional Video
 This video gives a brief explanation of the process for using various APIs on our website.
-Link: <em>https://www.youtube.com/watch?v=y_WWfAmEDwc</em>
+Link: <em>https://youtu.be/hoXt9AfBXJY</em>
 
 ### Back Office Admin Logins
 Nicolas Genest | CEO | nicolas.genest@codeboxx.biz | password: password
