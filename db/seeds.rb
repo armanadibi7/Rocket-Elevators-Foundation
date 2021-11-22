@@ -533,5 +533,20 @@ end
 
 end
 
+100.times do
+    fact_interventions = Fact_interventions.create!(
+        employee_id: Faker::Number.between(from: 1, to: 363),
+        battery_id: Faker::Number.between(from: 1, to: 363),
+        column_id: Faker::Number.between(from: 1, to: 363),
+        elevator_id: Faker::Number.between(from: 1, to: 363),
+        intervention_start_time: Faker::Time.between(from: DateTime.now - 1460, to: DateTime.now, format: :long),
+        intervention_end_time:
+        result: ["Success", "Failure", "Corporate"].sample,
+        report: Faker::Quote.yoda,
+        status: ["Pending", "InProgress", "Interrupted", "Resumed", "Complete"].sample
+    )
+end
+
+
 
 puts "Seeding Done!"
