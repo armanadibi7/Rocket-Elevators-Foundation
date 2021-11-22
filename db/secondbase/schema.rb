@@ -41,13 +41,13 @@ ActiveRecord::Schema.define(version: 2021_11_22_203629) do
 
   create_table "fact_interventions", force: :cascade do |t|
     t.string "employee_id"
-    t.string "battery_id"
-    t.string "column_id"
-    t.string "elevator_id"
+    t.string "battery_id" null: false
+    t.string "column_id" null: false
+    t.string "elevator_id" null: false
     t.datetime "intervention_start_time"
-    t.datetime "intervention_end_time"
+    t.datetime "intervention_end_time" null: false
     t.string "result"
-    t.text "report"
+    t.text "report" null: false
     t.string "status"
   end
 
