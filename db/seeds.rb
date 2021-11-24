@@ -259,7 +259,7 @@ end
     batteries = Battery.create!(
 
         battery_type: ["Residential", "Commercial", "Corporate", "Hybrid"].sample,
-        status: "Active", 
+        status: ["Active", "Inactive", "Intervention"].sample, 
         date_of_commissioning: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), 
         date_of_last_inspection: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), 
         certificate_of_operations: 'Certified',
@@ -276,7 +276,7 @@ end
     columns = Column.create!(
         column_type: ['Commercial', 'Residential', 'Corporate',].sample, 
         number_of_floor: Faker::Number.decimal_part(digits: 2), 
-        status: 'Active', 
+        status: ["Active", "Inactive", "Intervention"].sample, 
         information: Faker::Lorem.sentence(word_count: rand(3..12).floor),
         notes: Faker::Quote.yoda,
         created_at: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'),
@@ -290,7 +290,7 @@ end
         serial_number: Faker::Number.number(digits: 10),
         model: ['Standard', 'Premium', 'Excelium'].sample, 
         elevator_type: ['Commercial', 'Residential', 'Corporate',].sample, 
-        status: ["Active", "Inactive"].sample,
+        status: ["Active", "Inactive", "Intervention"].sample,
         date_of_commissioning: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), 
         date_of_last_inspection: Faker::Date.between(from: '2017-09-23', to: '2021-09-25'), 
         certificate_of_inspection: ['Yes', 'No'].sample, 
@@ -533,19 +533,7 @@ end
 
 end
 
-100.times do
-    fact_interventions = Fact_interventions.create!(
-        employee_id: Faker::Number.between(from: 1, to: 363),
-        battery_id: Faker::Number.between(from: 1, to: 363),
-        column_id: Faker::Number.between(from: 1, to: 363),
-        elevator_id: Faker::Number.between(from: 1, to: 363),
-        intervention_start_time: Faker::Time.between(from: DateTime.now - 1460, to: DateTime.now, format: :long),
-        intervention_end_time:
-        result: ["Success", "Failure", "Corporate"].sample,
-        report: Faker::Quote.yoda,
-        status: ["Pending", "InProgress", "Interrupted", "Resumed", "Complete"].sample
-    )
-end
+
 
 
 
