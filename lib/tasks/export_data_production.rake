@@ -48,6 +48,92 @@ namespace :export_data_production do
             VALUES ('#{customer.id}', '#{customer.created_at}', '#{customer.company_name.gsub("'", "''")}', '#{customer.company_contact_name.gsub("'", "''")}', '#{customer.contact_email}', '#{elevatorCount}', '#{customer.address.city.gsub("'", "''")}')")
         end
 
+        connection.exec("TRUNCATE fact_interventions RESTART IDENTITY")
+        Building.all.each do |building|
+            building.batteries.all.each do |battery|
+                if (battery.status == "Intervention")
+                    random_year = rand(2017..2021)
+                    random_month = rand(1..12)
+                    random_date = rand(1..22)
+                    intervention_status = ["Pending","In Progress","Interrupted","Resumed","Complete"].sample
+                    intervention_start_date = Date.new(random_year, random_month, random_date).to_datetime
+            
+                    if (intervention_status == "Complete")
+                        intervention_end_date = Date.new(random_year, random_month, random_date+3).to_datetime
+                        intervention_result = ["Success","Failure"].sample
+                        if (intervention_result == "Success")
+                            report = "This is working "
+                        else 
+                            report = "This is NOT working"
+                        end
+
+                    else
+                        intervention_result = "Incomplete"
+                        intervention_end_date = nil
+                    end
+
+                    connection.exec_params("INSERT INTO \"fact_interventions\" (employee_id, building_id, battery_id, column_id, elevator_id, intervention_start_time, intervention_end_time, result, report, status) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)", [battery.employee_id, building.id, battery.id, nil, nil, intervention_start_date, intervention_end_date, intervention_result, report, intervention_status])
+
+                end
+
+                battery.columns.all.each do |column|
+                    if (column.status == "Intervention") 
+                        random_year = rand(2017..2021)
+                        random_month = rand(1..12)
+                        random_date = rand(1..22)
+                        intervention_status = ["Pending","In Progress","Interrupted","Resumed","Complete"].sample
+                        intervention_start_date = Date.new(random_year, random_month, random_date).to_datetime
+
+                        if (intervention_status == "Complete")
+                            intervention_end_date = Date.new(random_year, random_month, random_date+3).to_datetime
+                            intervention_result = ["Success","Failure"].sample
+                            if (intervention_result == "Success")
+                                intervention_report = "This is working "
+                            else 
+                                intervention_report = "This is NOT working"
+                            end
+    
+                        else
+                            intervention_result = "Incomplete"
+                            intervention_end_date = nil
+                        end
+    
+                        connection.exec_params("INSERT INTO \"fact_interventions\" (employee_id, building_id, battery_id, column_id, elevator_id, intervention_start_time, intervention_end_time, result, report, status) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)", [battery.employee_id, building.id, battery.id, column.id, nil, intervention_start_date, intervention_end_date, intervention_result, intervention_report, intervention_status])
+
+                    end
+
+                    column.elevators.all.each do |elevator|
+                        if (elevator.status == "Intervention")
+                            random_year = rand(2017..2021)
+                            random_month = rand(1..12)
+                            random_date = rand(1..22)
+                            intervention_status = ["Pending","In Progress","Interrupted","Resumed","Complete"].sample
+                            intervention_start_date = Date.new(random_year, random_month, random_date).to_datetime
+    
+                            if (intervention_status == "Complete")
+                                intervention_end_date = Date.new(random_year, random_month, random_date+3).to_datetime
+                                intervention_result = ["Success","Failure"].sample
+                                if (intervention_result == "Success")
+                                    intervention_report = "This is working "
+                                else 
+                                    intervention_report = "This is NOT working"
+                                end
+        
+                            else
+                                intervention_result = "Incomplete"
+                                intervention_end_date = nil
+                            end
+        
+                            connection.exec_params("INSERT INTO \"fact_interventions\" (employee_id, building_id, battery_id, column_id, elevator_id, intervention_start_time, intervention_end_time, result, report, status) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)", [battery.employee_id, building.id, battery.id, column.id, elevator.id, intervention_start_date, intervention_end_date, intervention_result, intervention_report, intervention_status])
+    
+                        end
+                    end
+                end
+            end
+        end
+
+
+
 
         puts "Done!"
     end
