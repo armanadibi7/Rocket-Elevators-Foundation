@@ -6,4 +6,3 @@ random_date = rand(1..28)
 
 intervention_start_date = Date.new(random_year, random_month, random_date).to_date
 
-puts intervention_start_date
