@@ -1,0 +1,107 @@
+
+  
+ <% @myObject = Customer.all %>
+
+
+ <%= form_with(model: @intervention, local: true) do |f| %>  
+                
+    <fieldset>
+    
+
+  
+        
+        
+          
+       
+        <div class="row">
+                
+                    <!-- Drop Menu -->
+                    <label for="customers">Choose a Customer: 	&nbsp;	&nbsp;</label>
+
+                    <select onchange="selected_customer()" name="customersDropMenu" id="customersDropMenu">
+                    
+                    <option value="select">--- Please Select ---</option>
+                    <%= Customer.all.each do |custy| %>
+                    
+                    <option value="<%= custy.id %>"><%= custy.company_name %></option>
+
+                    <% end %>
+ 
+
+                    </select>
+                 
+                
+        </div>
+   
+        
+        
+        <div class="row" style="visibility: hidden" id="step2">
+                
+        <!-- Drop Menu -->
+        <label for="selectedBuilding">Select a Building: 	&nbsp;	&nbsp;</label>
+        <select onchange="selected_building()" name="selectedBuilding" id="selectedBuilding">
+     
+                </select>
+            
+        </div>
+                        
+        <div class="row" style="visibility: hidden" id="step3">
+                        
+        <!-- Drop Menu -->
+        <label for="selectedBattery">Select a Battery: 	&nbsp;	&nbsp;</label>
+        <select onchange="selected_battery()" name="selectedBattery" id="selectedBattery">
+                    
+
+
+        </select>
+
+        </div>
+
+
+        <div class="row" style="visibility: hidden" id="step4">
+                        
+        <!-- Drop Menu -->
+        <label for="selectedColumn">Select a Column: 	&nbsp;	&nbsp;</label>
+        <select onchange="selected_column()" name="selectedColumn" id="selectedColumn">
+                    
+
+
+        </select>
+
+        </div>
+        <div class="row" style="visibility: hidden" id="step5">
+                        
+        <!-- Drop Menu -->
+        <label for="selectedElevator">Select a Elevator: 	&nbsp;	&nbsp;</label>
+        <select onchange="selected_elevator()" name="selectedElevator" id="selectedElevator">
+                    
+
+
+        </select>
+
+       
+        </div>
+        <div class="row" style="visibility: hidden" id="step6">
+                        
+        <!-- Drop Menu -->
+        <label for="employeeList">Select a Employee: 	&nbsp;	&nbsp;</label>
+        <select onchange="selected_employee()" name="employeeList" id="employeeList">
+                    
+
+
+        </select>
+
+        </div>
+
+        <div class="row" style="visibility: hidden" id="step6">
+		    <div id="message" class="col-md-12">
+			<label for="contact:message">Message *</label>
+			<%= f.text_area :message , class: "form-control", :required => true, rows: 8  %>
+			</div>
+		</div>
+
+        
+    </fieldset>
+
+    
+    <% end %>   

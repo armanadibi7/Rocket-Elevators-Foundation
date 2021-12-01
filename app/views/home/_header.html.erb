@@ -63,8 +63,19 @@
 									</li>
 
 									<% if user_signed_in? %>
-										<li><%= link_to 'BACK OFFICE', rails_admin_path %></li>
-										<li><%= link_to 'SIGN OUT', destroy_user_session_path, :method => :delete  %></li>
+									<li>
+										<a class="dropdown-toggle" data-bs-toggle="dropdown" id="admin-nav" href="#">
+											ADMIN PANEL
+										</a>
+										<ul class="dropdown-menu">
+											<li><%= link_to 'BACK OFFICE',rails_admin_path , :class => "dropdown-item" %></li>
+											<li><%= link_to 'INTERVENTION', intervention_path , :class => "dropdown-item" %></li>
+											
+                                        </ul>
+										<li><%= link_to 'SIGN OUT', destroy_user_session_path, :method => :delete , :class => "dropdown-item" %></li>
+                                        
+									</li>
+										
 									<% else %>
 										<li><%= link_to 'SIGN IN', new_user_session_path%>
 									<% end %></li>
