@@ -3,9 +3,9 @@ class InterventionController < ApplicationController
     
 
  def getBuildings
-   @courses = Building.where("customer_id = ?", params[:id])
+   @building = Building.where("customer_id = ?", params[:id])
    respond_to do |format|
-     format.json { render :json => @courses }
+     format.json { render :json => @building }
    end
  end
  def getBattery
@@ -41,4 +41,32 @@ class InterventionController < ApplicationController
    
  end
     
+def submit 
+
+   @intervention = Intervention.new(intervention_params)
+   @intervention.user_id = current_user.id
+   if params[:column_id] == "null"
+    @intervention.column_id == nil
+   end
+   @intervention.column_id == nil
+   @intervention.elevator_id == nil
+   @intervention.employee_id == nil
+   @intervention.intervention_start = nil
+   @intervention.intervention_end = nil
+   @intervention.result = "Pending"
+   @intervention.status = "Pending"
+   @intervention.save
+#Begin
+#ROLLBACK
+   errors_stack = @intervention.errors.messages
+   puts errors_stack
+   if @intervention.save
+     redirect_to root_path, flash: {success: "Your Intervention has been successfully submitted"}
+   else 
+      @intervention.errors.messages
+   end
+end
+ def intervention_params
+   params.permit(:customer_id,:building_id,:battery_id,:column_id,:elevator_id,:employee_id,:report)
+ end
 end

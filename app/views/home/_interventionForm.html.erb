@@ -18,7 +18,7 @@
                     <!-- Drop Menu -->
                     <label for="customers">Choose a Customer: 	&nbsp;	&nbsp;</label>
 
-                    <select onchange="selected_customer()" name="customersDropMenu" id="customersDropMenu">
+                    <select onchange="selected_customer()" name="customer_id" id="customersDropMenu">
                     
                     <option value="select">--- Please Select ---</option>
                     <%= Customer.all.each do |custy| %>
@@ -39,7 +39,7 @@
                 
         <!-- Drop Menu -->
         <label for="selectedBuilding">Select a Building: 	&nbsp;	&nbsp;</label>
-        <select onchange="selected_building()" name="selectedBuilding" id="selectedBuilding">
+        <select onchange="selected_building()" name="building_id" id="selectedBuilding">
      
                 </select>
             
@@ -49,7 +49,7 @@
                         
         <!-- Drop Menu -->
         <label for="selectedBattery">Select a Battery: 	&nbsp;	&nbsp;</label>
-        <select onchange="selected_battery()" name="selectedBattery" id="selectedBattery">
+        <select onchange="selected_battery()" name="battery_id" id="selectedBattery">
                     
 
 
@@ -62,7 +62,7 @@
                         
         <!-- Drop Menu -->
         <label for="selectedColumn">Select a Column: 	&nbsp;	&nbsp;</label>
-        <select onchange="selected_column()" name="selectedColumn" id="selectedColumn">
+        <select onchange="selected_column()" name="column_id" id="selectedColumn">
                     
 
 
@@ -73,7 +73,7 @@
                         
         <!-- Drop Menu -->
         <label for="selectedElevator">Select a Elevator: 	&nbsp;	&nbsp;</label>
-        <select onchange="selected_elevator()" name="selectedElevator" id="selectedElevator">
+        <select onchange="selected_elevator()" name="elevator_id" id="selectedElevator">
                     
 
 
@@ -85,7 +85,7 @@
                         
         <!-- Drop Menu -->
         <label for="employeeList">Select a Employee: 	&nbsp;	&nbsp;</label>
-        <select onchange="selected_employee()" name="employeeList" id="employeeList">
+        <select onchange="selected_employee()" name="employee_id" id="employeeList">
                     
 
 
@@ -93,11 +93,17 @@
 
         </div>
 
-        <div class="row" style="visibility: hidden" id="step6">
-		    <div id="message" class="col-md-12">
+        <div class="row" style="visibility: hidden" id="step7">
+		    
 			<label for="contact:message">Message *</label>
-			<%= f.text_area :message , class: "form-control", :required => true, rows: 8  %>
-			</div>
+			<%= f.text_area :report , class: "form-control", :required => true, rows: 8  %>
+            
+		</div>
+		
+        <div class="row" style="visibility: hidden" id="step8">
+        
+        <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i>SUBMIT</button>
+   				
 		</div>
 
         
