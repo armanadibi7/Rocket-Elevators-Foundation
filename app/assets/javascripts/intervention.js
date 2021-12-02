@@ -25,7 +25,8 @@ function selected_customer(){
         type:'GET',
         url:'/getBuildings/' + value,
         success:function(data){
-          //I assume you want to do something on controller action execution success?
+            
+            
           console.log(data);
           var x = document.createElement("OPTION");
           x.setAttribute("value","Select");
@@ -34,8 +35,8 @@ function selected_customer(){
           document.getElementById("selectedBuilding").appendChild(x);
 
           $.each(data, function(i, j) {
-            // row = "<option value=\"" + j.id + "\">" + j.title + "</option>";
-            // $(row).appendTo("select#course");
+              
+
 
             var x = document.createElement("OPTION");
             x.setAttribute("value",j.id);
@@ -74,7 +75,8 @@ function selected_building(){
         type:'GET',
         url:'/getBattery/' + value,
         success:function(data){
-          //I assume you want to do something on controller action execution success?
+            
+
           console.log(data);
           var x = document.createElement("OPTION");
           x.setAttribute("value","Select");
@@ -83,11 +85,11 @@ function selected_building(){
           document.getElementById("selectedBattery").appendChild(x);
 
           $.each(data, function(i, j) {
-            // row = "<option value=\"" + j.id + "\">" + j.title + "</option>";
-            // $(row).appendTo("select#course");
+              
+
             var x = document.createElement("OPTION");
             x.setAttribute("value",j.id);
-            var t = document.createTextNode("Battery ID : " + j.id);
+            var t = document.createTextNode("Battery ID : " + j.id + " - " + j.status);
             x.appendChild(t);
             document.getElementById("selectedBattery").appendChild(x);
            });
@@ -121,7 +123,7 @@ function selected_battery(){
         type:'GET',
         url:'/getColumn/' + value,
         success:function(data){
-          //I assume you want to do something on controller action execution success?
+            
           console.log(data);
           var x = document.createElement("OPTION");
           x.setAttribute("value","Select");
@@ -134,11 +136,10 @@ function selected_battery(){
           x.appendChild(t);
           document.getElementById("selectedColumn").appendChild(x);
           $.each(data, function(i, j) {
-            // row = "<option value=\"" + j.id + "\">" + j.title + "</option>";
-            // $(row).appendTo("select#course");
+              
             var x = document.createElement("OPTION");
             x.setAttribute("value",j.id);
-            var t = document.createTextNode("Column ID : " + j.id);
+            var t = document.createTextNode("Column ID : " + j.id + " - " + j.status);
             x.appendChild(t);
             document.getElementById("selectedColumn").appendChild(x);
            });
@@ -167,7 +168,8 @@ function selected_column(){
         type:'GET',
         url:'/getElevator/' + value,
         success:function(data){
-          //I assume you want to do something on controller action execution success?
+            
+
           console.log(data);
           var x = document.createElement("OPTION");
           x.setAttribute("value","Select");
@@ -181,12 +183,11 @@ function selected_column(){
           document.getElementById("selectedElevator").appendChild(x);
           
           $.each(data, function(i, j) {
-            // row = "<option value=\"" + j.id + "\">" + j.title + "</option>";
-            // $(row).appendTo("select#course");
+              
             console.log(j.id)
             var x = document.createElement("OPTION");
             x.setAttribute("value",j.id);
-            var t = document.createTextNode("Elevator ID : " + j.id);
+            var t = document.createTextNode("Elevator ID : " + j.id + " - " + j.status);
             x.appendChild(t);
             document.getElementById("selectedElevator").appendChild(x);
            });
@@ -215,7 +216,7 @@ function selected_elevator(){
         type:'GET',
         url:'/getEmployee/' + value,
         success:function(data){
-          //I assume you want to do something on controller action execution success?
+            
           console.log(data);
           var x = document.createElement("OPTION");
           x.setAttribute("value","Select");
@@ -229,8 +230,7 @@ function selected_elevator(){
           document.getElementById("employeeList").appendChild(x);
 
           $.each(data, function(i, j) {
-            // row = "<option value=\"" + j.id + "\">" + j.title + "</option>";
-            // $(row).appendTo("select#course");
+              
             var x = document.createElement("OPTION");
             x.setAttribute("value",j.id);
             var t = document.createTextNode("ID : " + j.id + " - " + j.last_name);

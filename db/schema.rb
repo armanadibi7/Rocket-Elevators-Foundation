@@ -213,9 +213,6 @@ ActiveRecord::Schema.define(version: 2021_12_01_014945) do
   add_foreign_key "employees", "users"
   add_foreign_key "interventions", "batteries"
   add_foreign_key "interventions", "buildings"
-  add_foreign_key "interventions", "columns"
   add_foreign_key "interventions", "customers"
-  add_foreign_key "interventions", "elevators"
-  add_foreign_key "interventions", "employees"
   add_foreign_key "interventions", "users"
 end
