@@ -10,7 +10,7 @@ Link: <em>https://github.com/armanadibi7/Rocket_Elevators_REST_API</em>
 Link: <em>https://github.com/armanadibi7/Rocket_Elevators_GraphQL</em>
 
 #### Instructional Video
-This video gives a brief explanation of the process for using various APIs on our website.
+This video gives a brief explanation of the process for using the intervention form on my website.
 Link: <em>https://www.youtube.com/watch?v=ZrTUvReWwr8</em>
 
 ### Back Office Admin Logins
