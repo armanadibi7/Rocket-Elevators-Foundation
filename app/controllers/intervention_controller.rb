@@ -118,28 +118,30 @@ def get_zendesk_values
   @zendesk_batteries = Battery.find(params[:battery_id]).status
 
 
-if Employee.where(id: params[:employee_id]).nil? 
+if params[:employee_id] == "null"
 
-  @zendesk_employee =params[:employee_id] + " - " + Employee.find(params[:employee_id]).last_name
-else
   @intervention.employee =nil
   @zendesk_employee = "Not Provided"
+else
+  @zendesk_employee =params[:employee_id] + " - " + Employee.find(params[:employee_id]).last_name
+
 end
 
-if Column.where(id: params[:column_id]).nil? 
+if params[:column_id] == "null"
 
-  @zendesk_column = params[:column_id] + " - " + Column.find(params[:column_id]).status
-else
   @intervention.column_id = nil
   @zendesk_column = "Not Provided"
+else
+  @zendesk_column = params[:column_id] + " - " + Column.find(params[:column_id]).status
+ 
 end
 
-if Elevator.where(id: params[:elevator_id]).nil? 
-
-  @zendesk_elevators = params[:elevator_id] + " - " + Elevator.find(params[:elevator_id]).status
-else
+if params[:elevator_id] == "null"
   @intervention.elevator = nil
   @zendesk_elevators = "Not Provided"
+ else
+  @zendesk_elevators = params[:elevator_id] + " - " + Elevator.find(params[:elevator_id]).status
+
 end
 
 end

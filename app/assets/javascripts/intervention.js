@@ -224,7 +224,7 @@ function selected_elevator(){
           x.appendChild(t);
           document.getElementById("employeeList").appendChild(x);
           var x = document.createElement("OPTION");
-          x.setAttribute("value","none");
+          x.setAttribute("value","null");
           var t = document.createTextNode("NONE");
           x.appendChild(t);
           document.getElementById("employeeList").appendChild(x);
