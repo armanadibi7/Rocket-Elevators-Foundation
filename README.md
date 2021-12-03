@@ -1,11 +1,13 @@
 # README
 
 ## Project Description
-This week our task is to implement various APIs to add more features to our Rocket Elevator website.
+This week my task is to create an Intervention form for the employees that is accessible only to signed in users.
+This form update the intervation tables and use ZendeskApi, REST API and  GraphQL.
+
 
 #### Instructional Video
 This video gives a brief explanation of the process for using various APIs on our website.
-Link: <em>https://www.youtube.com/watch?v=y_WWfAmEDwc</em>
+Link: <em>https://www.youtube.com/watch?v=ZrTUvReWwr8</em>
 
 ### Back Office Admin Logins
 Nicolas Genest | CEO | nicolas.genest@codeboxx.biz | password: password
@@ -24,7 +26,7 @@ Krista Sheely | Developer | krista.sheely@codeboxx.biz | password: password
 
 ### Instructions
 
-First, you need a copy a database.yml file, which will specify your database information. Add this file to the config folder. A copy of the database.yml file is here https://github.com/dominhannguyen/database-yml
+First, you need a copy a database.yml and application.yml, which will specify your database information and the tokens for api. Add this file to the config folder. A copy of the database.yml, application.yml file is here https://github.com/armanadibi7/database-yml
 
 Next, include a copy of application.yml file, this file should be placed inside the config folder, which specifies the API key.
 
@@ -75,8 +77,3 @@ You can now see the website at a web browser at localhost:3000
 
 ### Ruby / Rails version
 We used Ruby 2.6.6 and Ruby on Rails 5.2.6
-
-
-### Collaborators
-Team Lead: <strong>Matthew Dandurand</strong> <br />
-Team Members: <strong>Jacob Gomez</strong>, <strong>Do Minh An Nguyen</strong>, <strong>Arman Adibi</strong>, and <strong>Tyler Calderon</strong>
