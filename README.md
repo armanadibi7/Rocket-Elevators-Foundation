@@ -30,7 +30,7 @@ Krista Sheely | Developer | krista.sheely@codeboxx.biz | password: password
 
 ### Instructions
 
-First, you need a copy a database.yml and application.yml, which will specify your database information and the tokens for api. Add this file to the config folder. A copy of the database.yml, application.yml file is here https://github.com/armanadibi7/database-yml
+First, you need a copy a database.yml, which will specify your database information Add this file to the config folder. A copy of the database.yml file is here https://github.com/armanadibi7/database-yml
 
 Next, include a copy of application.yml file, this file should be placed inside the config folder, which specifies the API key.
 
