@@ -17,5 +17,11 @@ get "quote" => "home#quote"
 post "getData" => "quote#getData"
 get "intervention" => "home#intervention"
 post "/intervention" => "intervention#submit"
+get "voice" => "home#voice"
+post "register" => "voice#register"
+
+post "identify" => "voice#identify"
+get 'checkAllStatus', to: 'voice#checkAllStatus'
+get 'checkStatus/:id', to: 'voice#checkStatus'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,0 +1,131 @@
+require 'net/http'
+require 'json'
+class VoiceController < ApplicationController
+    
+    def register
+
+        uri = URI('https://westus.api.cognitive.microsoft.com/spid/v1.0/identificationProfiles')
+        uri.query = URI.encode_www_form({
+        })
+        
+        request = Net::HTTP::Post.new(uri.request_uri)
+        # Request headers
+        request['Content-Type'] = 'application/json'
+        # Request headers
+        request['Ocp-Apim-Subscription-Key'] =  ENV['azure_speech']
+        # Request body
+        request.body =  ' { "locale":"en-us", } '
+        
+        response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+            http.request(request)
+        end
+        result = JSON.parse(response.body)
+        @voice = Voice.new
+        @voice.username = params[:username]
+        @voice.userId = result["identificationProfileId"]
+        @voice.save
+        uri = URI("https://westus.api.cognitive.microsoft.com/spid/v1.0/identificationProfiles/#{result["identificationProfileId"]}/enroll")
+        uri.query = URI.encode_www_form({
+            # Request parameters
+            'shortAudio' => 'true'
+        })
+
+        request = Net::HTTP::Post.new(uri.request_uri)
+        # Request headers
+        request['Content-Type'] = 'multipart/form-data'
+        # Request headers
+                request['Ocp-Apim-Subscription-Key'] =  ENV['azure_speech']
+        # Request body
+        request.body = params[:upload].read
+        puts params[:upload].read
+
+        response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+            http.request(request)
+        end
+        
+        @operation_link = response['operation-location']
+        
+        puts response.body 
+        uri = URI("https://westus.api.cognitive.microsoft.com/spid/v1.0/identificationProfiles/#{result["identificationProfileId"]}")
+        uri.query = URI.encode_www_form({
+        })
+
+        request = Net::HTTP::Get.new(uri.request_uri)
+        # Request headers
+        request['Ocp-Apim-Subscription-Key'] = ENV['azure_speech']
+        # Request body
+        request.body = "{body}"
+
+        response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+            http.request(request)
+        end
+
+        puts response.body
+    end
+
+    def checkAllStatus
+        @voices = Voice.all
+ 
+
+        respond_to do |format|
+            format.json { render :json => @voices }
+        end
+
+    end
+    
+    def checkStatus
+
+        uri = URI("https://westus.api.cognitive.microsoft.com/spid/v1.0/identificationProfiles/#{params[:id]}")
+        uri.query = URI.encode_www_form({
+        })
+
+        request = Net::HTTP::Get.new(uri.request_uri)
+        # Request headers
+        request['Ocp-Apim-Subscription-Key'] = ENV['azure_speech']
+        # Request body
+        request.body = "{body}"
+
+        response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+            http.request(request)
+        end
+
+        result = JSON.parse(response.body)
+        
+        puts response.body
+      
+        puts result["enrollmentStatus"]
+
+        respond_to do |format|
+            format.json { render :json => result }
+        end
+
+    end
+
+
+    def identify
+        
+        uri = URI("https://westus.api.cognitive.microsoft.com/spid/v1.0/identify?identificationProfileIds=e7d0fe48-96ad-4845-925e-b21520febf95")
+        uri.query = URI.encode_www_form({
+            # Request parameters
+            'shortAudio' => 'true'
+        })
+
+        request = Net::HTTP::Post.new(uri.request_uri)
+        # Request headers
+        request['Content-Type'] = 'audio/wav;codecs=audio/pcm;samplerate=16000'
+        # Request headers
+        request['Ocp-Apim-Subscription-Key'] = ENV['azure_speech']
+        # Request body
+        request.body = params[:upload].read
+        puts params[:upload].read
+        puts "im here"
+        response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+            http.request(request)
+        end
+        puts @operation_link 
+        puts response.body
+        puts response['content-length']
+    end
+
+    
+end
