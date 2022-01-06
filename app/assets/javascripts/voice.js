@@ -24,6 +24,7 @@ function mainFunction(){
     }else if(value=="identify"){
     // Corporate Fields    
 
+    document.getElementById('multiSelect').style.visibility= 'visible';
     document.getElementById('identify').style.visibility= 'visible';
     document.getElementById('status').style.visibility= 'hidden';
     document.getElementById('register').style.visibility= 'hidden';
