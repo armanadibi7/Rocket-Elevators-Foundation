@@ -20,19 +20,22 @@ function mainFunction(){
     
     document.getElementById('register').style.visibility= 'visible';
     document.getElementById('status').style.visibility= 'visible';
+    document.getElementById('multiSelect').style.visibility= 'hidden';
     checkStatus(0)
     }else if(value=="identify"){
     // Corporate Fields    
-
+    document.getElementById('multiSelect').style.visibility= 'visible';
     document.getElementById('identify').style.visibility= 'visible';
     document.getElementById('status').style.visibility= 'hidden';
     document.getElementById('register').style.visibility= 'hidden';
     }else if(value=="text_to_speech"){
     // Hybrid Fields
+    document.getElementById('multiSelect').style.visibility= 'hidden';
     document.getElementById('register').style.visibility= 'hidden';
     }else if(value=="select"){
 
     document.getElementById('register').style.visibility= 'hidden';
+    document.getElementById('multiSelect').style.visibility= 'hidden';
     }   
     
 
