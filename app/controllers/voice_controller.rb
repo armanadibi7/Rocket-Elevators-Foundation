@@ -39,6 +39,8 @@ class VoiceController < ApplicationController
         request.body = params[:upload].read
         puts params[:upload].read
 
+        temp = params[:upload].tempfile
+        puts temp.read
         response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
             http.request(request)
         end
@@ -104,15 +106,13 @@ class VoiceController < ApplicationController
 
     def identify
         
-        uri = URI("https://westus.api.cognitive.microsoft.com/spid/v1.0/identify?identificationProfileIds=e7d0fe48-96ad-4845-925e-b21520febf95")
-        uri.query = URI.encode_www_form({
-            # Request parameters
-            'shortAudio' => 'true'
-        })
-
+        uri = URI("https://westus.api.cognitive.microsoft.com/spid/v1.0/identify?identificationProfileIds=e67df783-723c-4ae3-92b2-d30b8444954b&shortAudio=true")
+      
         request = Net::HTTP::Post.new(uri.request_uri)
         # Request headers
         request['Content-Type'] = 'audio/wav;codecs=audio/pcm;samplerate=16000'
+
+        # request['Content-Type'] = 'application/octet-stream'
         # Request headers
         request['Ocp-Apim-Subscription-Key'] = ENV['azure_speech']
         # Request body
@@ -124,7 +124,22 @@ class VoiceController < ApplicationController
         end
         puts @operation_link 
         puts response.body
-        puts response['content-length']
+        puts response['operation-location']
+        uri = URI(response['operation-location'])
+        uri.query = URI.encode_www_form({
+        })
+
+        request = Net::HTTP::Get.new(uri.request_uri)
+        # Request headers
+        request['Ocp-Apim-Subscription-Key'] = ENV['azure_speech']
+        # Request body
+        request.body = "{body}"
+
+        response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+            http.request(request)
+        end
+
+        puts response.body
     end
 
     
