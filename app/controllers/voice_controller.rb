@@ -129,16 +129,26 @@ class VoiceController < ApplicationController
         uri.query = URI.encode_www_form({
         })
 
-        request = Net::HTTP::Get.new(uri.request_uri)
-        # Request headers
-        request['Ocp-Apim-Subscription-Key'] = ENV['azure_speech']
-        # Request body
-        request.body = "{body}"
+        loop = true
+        while loop
+            request = Net::HTTP::Get.new(uri.request_uri)
+            # Request headers
+            request['Ocp-Apim-Subscription-Key'] = ENV['azure_speech']
+            # Request body
+            request.body = "{body}"
 
-        response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
-            http.request(request)
+            response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+                http.request(request)
+            end
+
+            result = JSON.parse(response.body)
+            puts result["status"]
+            if result["status"] == "succeeded"
+                loop = false
+                puts result["processingResult"]
+            end
+            sleep 3
         end
-
         puts response.body
     end
 
