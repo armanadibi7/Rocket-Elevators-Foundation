@@ -88,7 +88,7 @@
                                 <%= f.label :upload, "Upload a File"%>
 
                                 <!-- custom file upload -->
-                                <%= f.file_field :upload ,class: 'custom-file-upload','data-btn-text' => 'Select a file'%>
+                                <%= f.file_field :upload,accept: 'audio/wav' ,class: 'custom-file-upload','data-btn-text' => 'Select a file'%>
                                 <small class="text-muted block">Max file size: 10Mb (wave)</small>
 
                             </div>
