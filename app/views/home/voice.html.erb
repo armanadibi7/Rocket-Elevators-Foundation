@@ -57,10 +57,7 @@
                 </fieldset>
             </div>
 
-            <div class="mb-3">
-                <label for="TextBox" class="form-label">Text Box</label>
-                <textarea class="form-control" id="VoiceTextBox" rows="3"></textarea>
-            </div>
+           
 
             <div class="form-group" id="register" name="register" style="visibility:hidden">
                 <h3>3. Register New:<strong></strong></h3>
@@ -91,29 +88,33 @@
             </div>
 
             <div class="form-group" id="identify" name="identify" style="visibility:hidden">
-                <h3>3. Register New:<strong></strong></h3>
+                <h3>3. Identify Speaker:<strong></strong></h3>
                 <fieldset>
-                    <%= form_with url: "/identify",method: :post do |f| %>
+                    <%= form_with url: "/identify",remote: true,method: :post do |f| %>
                        
                         <div id="attachment" class="form-group">
                             <div class="col-md-12">
-                                <%= f.label :upload, "Upload a File"%>
+                                <%= f.label :upload2, "Upload a File"%>
 
                                 <!-- custom file upload -->
-                                <%= f.file_field :upload ,accept: 'audio/wav',class: 'custom-file-upload','data-btn-text' => 'Select a file'%>
+                                <%= f.file_field :upload2 ,accept: 'audio/wav',class: 'custom-file-upload','data-btn-text' => 'Select a file'%>
                                 <small class="text-muted block">Max file size: 10Mb (wav)</small>
 
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Register Voice</button>
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Identify Voice</button>
                             </div>
                         </div>
+                        <div class="mb-3">
+                        <label for="TextBox" class="form-label">Result: </label>
+                        <textarea class="form-control" id="VoiceTextBox" rows="3" disabled> <% @result2 %></textarea>
+                    </div>
                     <% end %>
                 </fieldset>
             </div>  
-        
+            <button type="button" onclick="sendIdentification()" class="btn btn-primary"><i class="fa fa-check"></i> Identify Voice</button>             
         </div>
     </div>
             <!-- /FORM -->

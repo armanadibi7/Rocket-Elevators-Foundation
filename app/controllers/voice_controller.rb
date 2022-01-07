@@ -105,8 +105,9 @@ class VoiceController < ApplicationController
 
 
     def identify
-        
-        uri = URI("https://westus.api.cognitive.microsoft.com/spid/v1.0/identify?identificationProfileIds=e67df783-723c-4ae3-92b2-d30b8444954b&shortAudio=true")
+        puts params['myparam1']
+
+        uri = URI("https://westus.api.cognitive.microsoft.com/spid/v1.0/identify?identificationProfileIds=dd57cb49-ee19-4b4d-884b-ce986b014e7f,98b76498-f9a7-4f90-9b1c-91deaa9521d1&shortAudio=true")
       
         request = Net::HTTP::Post.new(uri.request_uri)
         # Request headers
@@ -149,7 +150,42 @@ class VoiceController < ApplicationController
             end
             sleep 3
         end
+        puts result["processingResult"]["identifiedProfileId"]
         puts response.body
+        
+        
+    end
+
+    def identify2
+
+        puts params[:upload].temp
+        uri = URI("https://westus.api.cognitive.microsoft.com/spid/v1.0/identificationProfiles/98b76498-f9a7-4f90-9b1c-91deaa9521d1")
+        uri.query = URI.encode_www_form({
+        })
+
+        request = Net::HTTP::Get.new(uri.request_uri)
+        # Request headers
+        request['Ocp-Apim-Subscription-Key'] = ENV['azure_speech']
+        # Request body
+        request.body = "{body}"
+
+        response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+            http.request(request)
+        end
+
+        result = JSON.parse(response.body)
+        
+        puts response.body
+      
+        puts result["enrollmentStatus"]
+
+        
+        @voices = Voice.all
+ 
+
+        respond_to do |format|
+            format.json { render :json => @voices }
+        end
     end
 
 

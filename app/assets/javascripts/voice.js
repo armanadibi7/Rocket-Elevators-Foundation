@@ -109,3 +109,19 @@ function checkStatus(code){
 
 
 }
+
+function sendIdentification(){
+    var upload = document.getElementById("upload2").files[0];
+    $.ajax({
+        url:'identify2',
+        type:'POST',
+        data : upload,
+        processData: false,  // tell jQuery not to process the data
+        contentType: false,
+        success:function(data){
+            console.log(data)
+        },
+        error:function(data){
+        }
+    });
+}

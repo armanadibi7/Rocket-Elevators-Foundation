@@ -21,6 +21,7 @@ get "voice" => "home#voice"
 post "register" => "voice#register"
 
 post "identify" => "voice#identify"
+post "identify2" => "voice#identify2"
 get 'checkAllStatus', to: 'voice#checkAllStatus'
 get 'checkStatus/:id', to: 'voice#checkStatus'
 
