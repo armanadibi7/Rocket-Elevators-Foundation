@@ -1,4 +1,4 @@
-# README
+# WEEK 13 - MACHINE LEARNING 
 
 #### Project Description
 This week project we have to implement the Machine Learning feature offered by Microsoft Azure's Cognitive Services. 
