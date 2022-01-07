@@ -32,9 +32,9 @@
                 </div>
             </div>
         </div>  
-        <div class="row" > 
+        <div class="row"> 
             <div class="col-md-32" id="status" name="status" style="visibility:hidden">
-            <h3>2. Check Status of Existing:<strong></strong></h3>
+                <h3>2. Check Status of Existing:<strong></strong></h3>
                 <fieldset>
                 <div class="row" >
                     <div class="col-md-12">
@@ -53,24 +53,29 @@
                     </div>
 
                 </div>
-        
+                <div class="row">
+                    <div class="col-md-12" id="multiSelect" style="visibility:hidden">
+                        <h3>2. Hold CTRL to select multiple:<strong></strong></h3>
+                        <select class="select" multiple style="width:150px">
+                            <option value="1">Jake</option>
+                            <option value="2">Arman</option>
+                            <option value="3">Tyler</option>
+                        </select>
+                        <div class="select-custom-content">
+                        <button class="btn-save btn btn-primary btn-sm">Save</button>
+                    </div>
+                </div>
+            </div>
                 </fieldset>
             </div>
         </div>
 
-            <div lass="col-md-16" id="multiSelect" style="visibility:hidden">
-                <h3>2. Hold CTRL to select multiple:<strong></strong></h3>
-                <select class="select" multiple style="width:150px">
-                    <option value="1">Jake</option>
-                    <option value="2">Arman</option>
-                    <option value="3">Tyler</option>
-                </select>
-                <div class="select-custom-content">
-                <button class="btn-save btn btn-primary btn-sm">Save</button>
-                </div>
-            </div>
+        <div class="mb-3">
+            <label for="TextBox" class="form-label">Text Box</label>
+            <textarea class="form-control" id="VoiceTextBox" rows="3"></textarea>
+        </div>
 
-        <div class="row"style="margin-left: 40px;"> 
+        <div class="container" style="margin-left: 40px;"> 
 
             <div class="col-md-16" id="register" name="register" style="visibility:hidden">
             <h3>3. Register New:<strong></strong></h3>
