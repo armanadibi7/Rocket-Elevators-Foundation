@@ -8,7 +8,7 @@ server "3.97.15.74", user: "ubuntu", roles: %w{app db web}
 # server "db.example.com", user: "deploy", roles: %w{db}
 app = ENV['APP']
 if app.nil? or app.empty?
-  app = "DoMinhAnNguyen" 
+  app = "ArmanAdibi" 
 end
 set :application, app
 set :rails_env, "development"
