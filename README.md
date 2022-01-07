@@ -1,17 +1,24 @@
 # README
 
 #### Project Description
-This week my task is to create an Intervention form for the employees that is accessible only to signed in users.
-This form update the intervation tables and use ZendeskApi, REST API and  GraphQL.
+This week project we have to implement the Machine Learning feature offered by Microsoft Azure's Cognitive Services. 
 
-#### REST API , GRAPHQL
-Link: <em>https://github.com/armanadibi7/Rocket_Elevators_REST_API</em>
+#### Audio Files Location
+Link: <em>https://drive.google.com/drive/folders/1eKVwz5EfwAhzNhYO8K2PqtINQP4sXaVZ?usp=sharing</em>
 
-Link: <em>https://github.com/armanadibi7/Rocket_Elevators_GraphQL</em>
+#### Deployed Website [ PLEASE FIX ]
+Link: <em>PLEASE FIX </em>
 
-#### Instructional Video
-This video gives a brief explanation of the process for using the intervention form on my website.
-Link: <em>https://www.youtube.com/watch?v=ZrTUvReWwr8</em>
+
+#### Instructional Video [ PLEASE FIX ] 
+This video gives a brief explanation of the process for using the service.
+Link: <em>PLEASE FIX</em>
+
+
+#### Link to the application.yml and database.yml file
+Link: <em>https://drive.google.com/drive/folders/1FtKEGSkLoLdi31dXOq1MwKu5NWavKJgI?usp=sharing </em>
+
+
 
 ### Back Office Admin Logins
 Nicolas Genest | CEO | nicolas.genest@codeboxx.biz | password: password
