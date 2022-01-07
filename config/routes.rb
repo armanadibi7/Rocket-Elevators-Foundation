@@ -24,5 +24,8 @@ post "identify" => "voice#identify"
 post "identify2" => "voice#identify2"
 get 'checkAllStatus', to: 'voice#checkAllStatus'
 get 'checkStatus/:id', to: 'voice#checkStatus'
+
+get "transcribe" => "home#transcribe"
+post "transcribe" => "voice#transcribe"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

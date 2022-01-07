@@ -189,5 +189,36 @@ class VoiceController < ApplicationController
     end
 
 
+    def transcribe
+        
+        uri = URI("https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US")
+    
+        request = Net::HTTP::Post.new(uri.request_uri)
+        # Request headers
+        request['Content-Type'] = 'audio/wav;codecs=audio/pcm;samplerate=16000'
+
+        # request['Content-Type'] = 'application/octet-stream'
+        # Request headers
+        request['Ocp-Apim-Subscription-Key'] = ENV['azure_speech']
+        # Request body
+        request.body = params[:upload].read
+        response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+            http.request(request)
+        end
+        
+        
+        result = JSON.parse(response.body)
+
+        @transcription = result["DisplayText"]
+
+    
+        puts "================================="
+        puts result["DisplayText"]
+        puts "================================="
+
+        render template: "home/transcribe"
+   
+end
+
     
 end
