@@ -6,13 +6,13 @@ This week project we have to implement the Machine Learning feature offered by M
 #### Audio Files Location
 Link: <em>https://drive.google.com/drive/folders/1eKVwz5EfwAhzNhYO8K2PqtINQP4sXaVZ?usp=sharing</em>
 
-#### Deployed Website [ PLEASE FIX ]
-Link: <em>PLEASE FIX </em>
+#### Deployed Website
+Link: <em>http://sharkelevator123.com/</em>
 
 
-#### Instructional Video [ PLEASE FIX ] 
+#### Instructional Video
 This video gives a brief explanation of the process for using the service.
-Link: <em>PLEASE FIX</em>
+Link: <em>https://youtu.be/UW12NtrWdNg</em>
 
 
 #### Link to the application.yml and database.yml file
