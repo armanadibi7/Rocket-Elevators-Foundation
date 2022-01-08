@@ -105,6 +105,8 @@ class VoiceController < ApplicationController
 
 
     def identify
+
+        
         puts params['myparam1']
 
         uri = URI("https://westus.api.cognitive.microsoft.com/spid/v1.0/identify?identificationProfileIds=dd57cb49-ee19-4b4d-884b-ce986b014e7f,98b76498-f9a7-4f90-9b1c-91deaa9521d1&shortAudio=true")
@@ -152,40 +154,78 @@ class VoiceController < ApplicationController
         end
         puts result["processingResult"]["identifiedProfileId"]
         puts response.body
-        
+        respond_to do |format|
+        format.html {}
+        format.js { render text: 'alert();' }
+      end
         
     end
 
     def identify2
-
-        puts params[:upload].temp
-        uri = URI("https://westus.api.cognitive.microsoft.com/spid/v1.0/identificationProfiles/98b76498-f9a7-4f90-9b1c-91deaa9521d1")
-        uri.query = URI.encode_www_form({
-        })
-
-        request = Net::HTTP::Get.new(uri.request_uri)
-        # Request headers
-        request['Ocp-Apim-Subscription-Key'] = ENV['azure_speech']
-        # Request body
-        request.body = "{body}"
-
-        response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
-            http.request(request)
+        
+        @uploaded_audio = params[:upload].read
+        splited_id = params['selcted_user'].split(",")
+        array_user = Array.new
+        splited_id.each do |id|
+            uri = URI("https://westus.api.cognitive.microsoft.com/spid/v1.0/identify?identificationProfileIds=#{id}&shortAudio=true")
+        
+            request = Net::HTTP::Post.new(uri.request_uri)
+            # Request headers
+            request['Content-Type'] = 'audio/wav;codecs=audio/pcm;samplerate=16000'
+    
+            # request['Content-Type'] = 'application/octet-stream'
+            # Request headers
+            request['Ocp-Apim-Subscription-Key'] = ENV['azure_speech']
+            # Request body
+            request.body = @uploaded_audio
+            
+            response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+                http.request(request)
+            end
+            puts @operation_link 
+            puts response.body
+            puts response['operation-location']
+            uri = URI(response['operation-location'])
+            uri.query = URI.encode_www_form({
+            })
+    
+            loop = true
+            while loop
+                request = Net::HTTP::Get.new(uri.request_uri)
+                # Request headers
+                request['Ocp-Apim-Subscription-Key'] = ENV['azure_speech']
+                # Request body
+                request.body = "{body}"
+    
+                response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+                    http.request(request)
+                end
+    
+                result = JSON.parse(response.body)
+                puts result["status"]
+                if result["status"] == "succeeded"
+                    loop = false
+                    puts result["processingResult"]
+                elsif result["failed"] == "succeeded"
+                    loop = false
+                    puts result["processingResult"]
+                end
+                
+            sleep 2
+            end
+            puts result["processingResult"]["identifiedProfileId"]
+            @voice = Voice.where(userId: result["processingResult"]["identifiedProfileId"])
+            array_user.push(@voice)
+    
+            
         end
 
-        result = JSON.parse(response.body)
+            respond_to do |format|
+                format.json { render :json => array_user  }
+            end
         
-        puts response.body
-      
-        puts result["enrollmentStatus"]
 
-        
-        @voices = Voice.all
- 
 
-        respond_to do |format|
-            format.json { render :json => @voices }
-        end
     end
 
 

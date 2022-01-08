@@ -21,8 +21,9 @@ function mainFunction(){
     document.getElementById('register').style.visibility= 'visible';
     document.getElementById('status').style.visibility= 'visible';
     document.getElementById('multiSelect').style.visibility= 'hidden';
-    checkStatus(0)
+    checkStatus(0);
     }else if(value=="identify"){
+    checkStatus(2);
     // Corporate Fields    
     document.getElementById('multiSelect').style.visibility= 'visible';
     document.getElementById('identify').style.visibility= 'visible';
@@ -44,8 +45,9 @@ function mainFunction(){
 
 }
 function checkStatus(code){
+
     if(code == 0){
- function removeOptions(selectElement) {
+    function removeOptions(selectElement) {
         var i, L = selectElement.options.length - 1;
         for(i = L; i >= 0; i--) {
             selectElement.remove(i);
@@ -105,23 +107,99 @@ function checkStatus(code){
 
 
 
+    }else if(code == 2){
+        function removeOptions(selectElement) {
+        var i, L = selectElement.options.length - 1;
+        for(i = L; i >= 0; i--) {
+            selectElement.remove(i);
+        }
+        }
+
+
+    removeOptions(document.getElementById('user_to_identify'));
+    
+    $.ajax({
+        type:'GET',
+        url:'/checkAllStatus',
+        success:function(data){
+            
+            
+          console.log(data);
+
+          $.each(data, function(i, j) {
+              
+
+
+            var x = document.createElement("OPTION");
+            x.setAttribute("value",j.userId);
+            var t = document.createTextNode(j.username);
+            x.appendChild(t);
+            document.getElementById("user_to_identify").appendChild(x);
+           });
+        }
+      });
+
     }
 
 
 }
 
 function sendIdentification(){
+
+    var selected = [];
+    for (var option of document.getElementById('user_to_identify').options)
+    {
+        if (option.selected) {
+            selected.push(option.value);
+        }
+    }
+    console.log(selected);
+    
     var upload = document.getElementById("upload2").files[0];
+    var fd = new FormData();
+    fd.append('upload', upload);
+    fd.append("selcted_user",selected);
+    console.log(upload);
     $.ajax({
-        url:'identify2',
-        type:'POST',
-        data : upload,
-        processData: false,  // tell jQuery not to process the data
-        contentType: false,
-        success:function(data){
-            console.log(data)
+      url: 'identify2',
+      data: fd,
+      processData: false,
+      type: 'POST',
+      contentType: false,
+      cache: false,
+      mimeType: 'multipart/form-data',
+      dataType: 'JSON',
+      beforeSend: function() {
+        document.getElementById("VoiceTextBox").value = "Loading...";
+      },
+       success:function(data){
+
+            console.log(data);
+
+            $.each(data, function(i, j) {
+            
+            if(j.length == 0){
+                document.getElementById("VoiceTextBox").value = "No Recognised Profile Detected";
+            }else{
+                document.getElementById("VoiceTextBox").value = "";
+
+            $.each(j,function(p,c){
+            
+                     document.getElementById("VoiceTextBox").value += "Identified Profile : " + c.username +'\r\n';  
+            }); 
+
+            }
+            
+
+
+           });
+
+           console.log(data.length);
+            
         },
         error:function(data){
         }
+    
+       
     });
 }

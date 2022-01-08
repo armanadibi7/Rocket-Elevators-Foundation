@@ -21,7 +21,6 @@
                         <option value="select">--- Please Select ---</option>
                         <option value="register">Register</option>
                         <option value="identify">Identify</option>
-                        <option value="text_to_speech">Transcribe</option>
                         </select>
 
                     </div>
@@ -45,14 +44,10 @@
 
                     <div class="form-group" id="multiSelect" style="visibility:hidden">
                         <h3>2. Hold CTRL to select multiple:<strong></strong></h3>
-                        <select class="select" multiple style="width:150px">
-                            <option value="1">Jake</option>
-                            <option value="2">Arman</option>
-                            <option value="3">Tyler</option>
+                        <select name="user_to_identify" id="user_to_identify" class="select" multiple style="width:250px;height:150px;">
+                            
                         </select>
-                        <div class="select-custom-content">
-                        <button class="btn-save btn btn-primary btn-sm">Save</button>
-                        </div>
+                        
                     </div>
                 </fieldset>
             </div>
@@ -90,7 +85,7 @@
             <div class="form-group" id="identify" name="identify" style="visibility:hidden">
                 <h3>3. Identify Speaker:<strong></strong></h3>
                 <fieldset>
-                    <%= form_with url: "/identify",remote: true,method: :post do |f| %>
+                    <%= form_with url: "/identify",method: :post do |f| %>
                        
                         <div id="attachment" class="form-group">
                             <div class="col-md-12">
@@ -103,18 +98,17 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i> Identify Voice</button>
+                            <div class="col-md-12"><button type="button" onclick="sendIdentification()" class="btn btn-primary"><i class="fa fa-check"></i> Identify Voice</button> 
                             </div>
                         </div>
                         <div class="mb-3">
                         <label for="TextBox" class="form-label">Result: </label>
-                        <textarea class="form-control" id="VoiceTextBox" rows="3" disabled> <% @result2 %></textarea>
+                        <textarea class="form-control" id="VoiceTextBox" rows="3" disabled></textarea>
                     </div>
                     <% end %>
                 </fieldset>
             </div>  
-            <button type="button" onclick="sendIdentification()" class="btn btn-primary"><i class="fa fa-check"></i> Identify Voice</button>             
+                        
         </div>
     </div>
             <!-- /FORM -->
