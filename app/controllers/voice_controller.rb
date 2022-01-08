@@ -231,7 +231,7 @@ class VoiceController < ApplicationController
 
     def transcribe
         
-        uri = URI("https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US")
+        uri = URI("https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=#{params[:language]}")
     
         request = Net::HTTP::Post.new(uri.request_uri)
         # Request headers
