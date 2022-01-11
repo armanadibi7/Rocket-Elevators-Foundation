@@ -448,7 +448,7 @@ DEPENDENCIES
   rails_admin (~> 2.0)
   rvm1-capistrano3
   sass-rails (~> 5.0)
-  sassc-rails (<= 2.3.0)
+  sassc-rails (>= 2.1.0)
   secondbase (~> 2.1)
   selenium-webdriver
   sendgrid-actionmailer
