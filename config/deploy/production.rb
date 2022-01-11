@@ -28,7 +28,7 @@ set :linked_files, %w{config/application.yml config/database.yml }
 # Don't use `:all`, it's a meta role.
 
 role :app, %w{ubuntu@54.146.245.79}
-role :web, %w{ubuntu@54.146.245.79
+role :web, %w{ubuntu@54.146.245.79}
 role :db,  %w{ubuntu@54.146.245.79}
 
 
